@@ -20,7 +20,36 @@ import React, {useState} from 'react'
 
 function App() {
     const [city, setCity] = useState('Buckeye')
-    
+    const [cityData, setCityData] = useState([
+        {
+            id:1,
+            name:'Arizona',
+            active:false,
+            src:Az
+        },
+        {
+            id:2,
+            name:'Paris',
+            active:false,
+            src:Paris
+
+        },
+        {
+            id:3,
+            name:'Italy',
+            active:false,
+            src:Italy
+
+        },
+        {
+            id:4,
+            name:'Spain',
+            active:false,
+            src:Spain
+
+        },
+        
+    ])
 const currentCity = (e) => {
     if(e.target.textContent){
       setCity(e.target.textContent) 
@@ -76,10 +105,7 @@ const currentCity = (e) => {
   <h3 style = {{paddingBottom:'20px',paddingLeft:'20px',width:'269px',alignItems:'center'}}>Weather Forecast</h3>
 
   <div className = 'citys' style = {{padding:'0px'}}>
-    <Cards  activeF = {currentCity} src = {Az} name = 'Arizona'/>
-    <Cards activeF = {currentCity} src = {Italy} name = 'Italy'/>
-    <Cards activeF = {currentCity} src = {Paris} name = 'Paris'/>
-    <Cards activeF= {currentCity}src = {Spain} name = 'Spain'/>
+    <Cards  activeF = {currentCity} data = {cityData}/>
   </div>
 </div>
 
