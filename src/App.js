@@ -60,13 +60,13 @@ const currentCity = (e) => {
 
 
   return <>
-  <div className = 'd-flex align-items-center justify-content-center' style ={{height:'100vh',width:'100vw'}}>
+  <div className = 'd-flex align-items-center justify-content-center' style ={{height:'100vh',width:'100vw',  backgroundColor: '#4FA1CA'
+}}>
     <div className = 'app-container'>
         <div className = 'nav-container' style = {{margin:'0'}}>
          <Header logo = {Logo}/>
 
-
-         <Nav className = 'd-flex flex-column' style = {{paddingLeft:'25px',height:'205px'}}>
+         <Nav className = 'd-flex flex-column justify-content-center' style = {{paddingLeft:'25px',height:'30%'}}>
       <NavLinks name = 'Daily' logo = {<BiHome color = 'white' style = {{paddingRight:'10px',height:'33px',width:'33px'}} />} />
       <NavLinks name = 'Hours' logo = {<Ri24HoursLine color = 'white' style = {{paddingRight:'10px',height:'33px',width:'33px'}} />} />
       <NavLinks name = 'Weekly' logo = {<BiCalendarWeek color = 'white' style = {{paddingRight:'10px',height:'33px',width:'33px'}} />} />

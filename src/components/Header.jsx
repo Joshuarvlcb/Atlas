@@ -1,8 +1,8 @@
 const Header = ({logo}) => {
     return (
         <>
-          <div className = 'row logo-con' style = {{height:'50px',color:'white',fontSize:'22px',fontWeight:'500'}}  >
-                <div className = 'col d-flex justify-content-center align-items-center '> <img height = '40px'src = {logo} className = 'padding'></img> ATLAS</div>
+          <div style = {{height:'15%',color:'white',fontSize:'22px',fontWeight:'500'}} className = 'col d-flex justify-content-center align-items-center ' >
+                <div style = {{color:'#4FA1CA'}} > <img height = '40px'src = {logo} className = 'padding'></img> ATLAS</div>
           </div>
         </>
     )
