@@ -3,6 +3,7 @@
   margin: 0px;
   box-sizing: border-box;
 }
+
 .app-container{
   display: flex;
   width: 95vw;
@@ -16,16 +17,18 @@
     background-color: rgb(247, 165, 176);
     border-bottom-left-radius: 25px;
     border-top-left-radius: 25px;
+
+    .logo-con{
+      div{
+        color: rgb(107, 179, 221)!important;
+      }
+    }
   }
 
 
 
 }
-.logo-con{
-  padding-right: 50px;
-  margin-bottom: 50px;
-  padding-top: 10px;
-}
+
 .padding{
   margin-right: 7px;
 

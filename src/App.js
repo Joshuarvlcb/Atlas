@@ -58,7 +58,8 @@ const currentCity = (e) => {
 
 
   return <>
-  <div className = 'd-flex align-items-center justify-content-center' style ={{height:'100vh',width:'100vw'}}>
+  <div className = 'd-flex align-items-center justify-content-center' style ={{height:'100vh',width:'100vw',  backgroundColor: '#4FA1CA'
+}}>
     <div className = 'app-container'>
     <Navbar/>
 {/* weather forecast */}

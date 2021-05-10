@@ -6,7 +6,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 const DailyCard = () => {
     return  (
         <>
-        <Container className = 'd-flex justify-content-center'>
+        <Container className = 'd-flex justify-content-center align-items-center' style = {{height:'55%'}}>
 <div as = 'div' className = 'card-con'>
   <Row >
     <Col>  <div className = 'd-flex justify-content-center' style = {{paddingTop:'5px'}}> 
