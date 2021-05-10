@@ -1,22 +1,13 @@
-import Logo from './assests/weather-logo.png'
 import {RiArrowDropDownLine} from 'react-icons/ri'
-import Header from './components/Header'
-import NavLinks from './components/NavLinks'
-import Sun from './assests/sunny.png'
-import { BiHome } from "react-icons/bi";
-import {Ri24HoursLine} from 'react-icons/ri'
 import Faker from 'faker'
-import {BiCalendarWeek} from 'react-icons/bi'
 import Cards from './components/Cards.jsx'
 import Az from './assests/az-background.jpg'
 import Italy from './assests/italy-background.jpg'
 import Paris from './assests/paris.bg.jpg'
 import Spain from './assests/spain-bg.jpg'
-import {Nav} from 'react-bootstrap'
-import DailyCard from './components/DailyCard'
-import {FiSettings} from 'react-icons/fi'
-import MiniCard from './components/MiniCard'
 import React, {useState} from 'react'
+import Slider from './components/Slider'
+import Navbar from './components/Navbar'
 
 function App() {
     const [city, setCity] = useState('Buckeye')
@@ -50,6 +41,13 @@ function App() {
         },
         
     ])
+
+    const data = {
+      today: ['morning', 'noon', 'evening', 'night'],
+      hourly: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
+      daily: ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+    }
+
 const currentCity = (e) => {
     if(e.target.textContent){
       setCity(e.target.textContent) 
@@ -62,24 +60,7 @@ const currentCity = (e) => {
   return <>
   <div className = 'd-flex align-items-center justify-content-center' style ={{height:'100vh',width:'100vw'}}>
     <div className = 'app-container'>
-        <div className = 'nav-container' style = {{margin:'0'}}>
-         <Header logo = {Logo}/>
-
-
-         <Nav className = 'd-flex flex-column' style = {{paddingLeft:'25px',height:'205px'}}>
-      <NavLinks name = 'Today' logo = {<BiHome color = 'white' style = {{paddingRight:'10px',height:'33px',width:'33px'}} />} />
-      <NavLinks name = 'Hourly' logo = {<Ri24HoursLine color = 'white' style = {{paddingRight:'10px',height:'33px',width:'33px'}} />} />
-      <NavLinks name = 'Daily' logo = {<BiCalendarWeek color = 'white' style = {{paddingRight:'10px',height:'33px',width:'33px'}} />} />
-      <NavLinks name = 'Settings' logo = {<FiSettings color = 'white' style = {{paddingRight:'10px',height:'33px',width:'33px'}} />} />
-
-      
-           </Nav>
-
-<DailyCard/>
-
-
-
-        </div>
+    <Navbar/>
 {/* weather forecast */}
 
 <div className="forcast-con">
@@ -129,20 +110,7 @@ const currentCity = (e) => {
   </Col>
 
 </Row> */}
-<div className="slider">
-<h3 style = {{paddingBottom:'20px',paddingLeft:'20px',width:'269px',alignItems:'center'}}>{city}</h3>
-<div className="daily-slider">
- 
-  <MiniCard pic = {Sun} height/>
-  <MiniCard pic = {Sun} height/>
-  <MiniCard pic = {Sun} height/>
-  <MiniCard pic = {Sun} height/>
-  <MiniCard pic = {Sun} height/>
-  <MiniCard pic = {Sun} height/>
-  <MiniCard pic = {Sun} height/>
-
-</div>
-</div>
+  <Slider object = {data.today} city = {city}/>
 </div>
 
 
