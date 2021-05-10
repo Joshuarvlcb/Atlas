@@ -11,7 +11,7 @@ const Header = ({ logo }) => {
         className="d-flex justify-content-center align-items-center"
       >
         <div
-          className="d-flex justify-content-center"
+          className="d-flex justify-content-center align-items-center"
           style={{ color: "#4FA1CA", width: "100%" }}
         >
           {" "}

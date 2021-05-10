@@ -161,7 +161,12 @@
 }
 
 .active {
-  -webkit-transform: translateY(-10px);
-          transform: translateY(-10px);
+  -webkit-transform: translateY(-13px);
+          transform: translateY(-13px);
+  color: blue;
+  -webkit-transition: -webkit-transform .3s ease;
+  transition: -webkit-transform .3s ease;
+  transition: transform .3s ease;
+  transition: transform .3s ease, -webkit-transform .3s ease;
 }
 /*# sourceMappingURL=style.css.map */

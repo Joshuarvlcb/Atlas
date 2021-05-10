@@ -115,5 +115,7 @@
   }
 }
 .active{
-  transform: translateY(-10px);
+  transform: translateY(-13px);
+  color: blue;
+  transition: transform .3s ease;
 }

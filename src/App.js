@@ -1,87 +1,91 @@
-import Logo from './assests/weather-logo.png'
-import { RiArrowDropDownLine } from 'react-icons/ri'
-import Header from './components/Header'
-import NavLinks from './components/NavLinks'
-import Sun from './assests/sunny.png'
-import { BiHome } from "react-icons/bi";
-import { Ri24HoursLine } from 'react-icons/ri'
+import {RiArrowDropDownLine} from 'react-icons/ri'
 import Faker from 'faker'
-import { BiCalendarWeek } from 'react-icons/bi'
 import Cards from './components/Cards.jsx'
 import Az from './assests/az-background.jpg'
 import Italy from './assests/italy-background.jpg'
 import Paris from './assests/paris.bg.jpg'
 import Spain from './assests/spain-bg.jpg'
-import { Nav } from 'react-bootstrap'
-import DailyCard from './components/DailyCard'
-import { FiSettings } from 'react-icons/fi'
-import MiniCard from './components/MiniCard'
-import React, { useState } from 'react'
+import React, {useState} from 'react'
+import Slider from './components/Slider'
+import Navbar from './components/Navbar'
 
 function App() {
-  const [city, setCity] = useState('Buckeye')
-  const [cityData, setCityData] = useState([
-    {
-      id: 1,
-      name: 'Arizona',
-      active: false,
-      src: Az
-    },
-    {
-      id: 2,
-      name: 'Paris',
-      active: false,
-      src: Paris
+  const [clicked,setClicked] = useState('')
+    const [city, setCity] = useState('Buckeye')
+    const [cityData, setCityData] = useState([
+        {
+            id:1,
+            name:'Arizona',
+            active:false,
+            src:Az
+        },
+        {
+            id:2,
+            name:'Paris',
+            active:false,
+            src:Paris
 
-    },
-    {
-      id: 3,
-      name: 'Italy',
-      active: false,
-      src: Italy
+        },
+        {
+            id:3,
+            name:'Italy',
+            active:false,
+            src:Italy
 
-    },
-    {
-      id: 4,
-      name: 'Spain',
-      active: false,
-      src: Spain
+        },
+        {
+            id:4,
+            name:'Spain',
+            active:false,
+            src:Spain
 
-    },
-
-  ])
-  const currentCity = (e) => {
-    if (e.target.textContent) {
-      setCity(e.target.textContent)
-      e.target.className = 'active'
+        },
+        
+    ])
+    
+    const data = {
+      today: ['morning', 'noon', 'evening', 'night'],
+      hourly: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
+      daily: ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
     }
-    else setCity(e.target.alt)
+   
+
+const cityName = (e) => {
+  let target
+  if(e.target.textContent){
+    setCity(e.target.textContent) 
+    target = e.target.textContent
   }
+  else {
+    setCity(e.target.alt)
+  setClicked(e.target.alt)
+  target = e.target.alt
+
+  console.log(e.target.alt)
+  }
+
+    setCityData(cityData.map(obj => {
+      if(obj.active) {
+        return {...obj, active:!obj.active} 
+      }
+        return (target === obj.name) ? {...obj,active:!obj.active} : obj
+    }))
+    console.table(cityData)
+
+}
+const active = (e) => {
+  cityName(e);
+}
+
+
 
 
   return <>
-    <div className='d-flex align-items-center justify-content-center' style={{
-      height: '100vh', width: '100vw', backgroundColor: '#4FA1CA'
-    }}>
-      <div className='app-container'>
-        <div className='nav-container' style={{ margin: '0' }}>
-          <Header logo={Logo} />
-
-          <Nav className='d-flex flex-column justify-content-center' style={{ paddingLeft: '25px', height: '30%' }}>
-            <NavLinks name='Daily' logo={<BiHome color='white' style={{ paddingRight: '10px', height: '33px', width: '33px' }} />} />
-            <NavLinks name='Hours' logo={<Ri24HoursLine color='white' style={{ paddingRight: '10px', height: '33px', width: '33px' }} />} />
-            <NavLinks name='Weekly' logo={<BiCalendarWeek color='white' style={{ paddingRight: '10px', height: '33px', width: '33px' }} />} />
-            <NavLinks name='Settings' logo={<FiSettings color='white' style={{ paddingRight: '10px', height: '33px', width: '33px' }} />} />
-
-
-          </Nav>
-
-          <DailyCard />
-
-
-
-        </div>
-        {/* weather forecast */}
+  <div className = 'd-flex align-items-center justify-content-center' style ={{height:'100vh',width:'100vw',  backgroundColor: '#4FA1CA'
+}}>
+    <div className = 'app-container'>
+    <Navbar/>
+{/* weather forecast */}
 
         <div className="forcast-con">
           <div className='d-flex justify-content-end align-items-center' style={{ width: '95%', height: '20%' }}>
@@ -106,7 +110,7 @@ function App() {
             <h3 style={{ paddingBottom: '20px', paddingLeft: '20px', width: '269px', alignItems: 'center' }}>Weather Forecast</h3>
 
             <div className='citys' style={{ padding: '0px' }}>
-              <Cards activeF={currentCity} data={cityData} />
+              <Cards  data={cityData} clicked = {active} />
             </div>
           </div>
 
@@ -130,21 +134,8 @@ function App() {
   </Col>
 
 </Row> */}
-          <div className="slider">
-            <h3 style={{ paddingBottom: '20px', paddingLeft: '20px', width: '269px', alignItems: 'center' }}>{city}</h3>
-            <div className="daily-slider">
-
-              <MiniCard pic={Sun} height />
-              <MiniCard pic={Sun} height />
-              <MiniCard pic={Sun} height />
-              <MiniCard pic={Sun} height />
-              <MiniCard pic={Sun} height />
-              <MiniCard pic={Sun} height />
-              <MiniCard pic={Sun} height />
-
-            </div>
-          </div>
-        </div>
+  <Slider object = {data.today} city = {city}/>
+</div>
 
 
         {/* <Row >
