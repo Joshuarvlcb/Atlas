@@ -117,4 +117,8 @@
 .icon .dropdown {
   cursor: pointer;
 }
+
+.active {
+  transform: translateY(-10px);
+}
 /*# sourceMappingURL=style.min.css.map */

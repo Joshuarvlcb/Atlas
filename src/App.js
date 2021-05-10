@@ -15,7 +15,21 @@ import Spain from './assests/spain-bg.jpg'
 import {Nav} from 'react-bootstrap'
 import DailyCard from './components/DailyCard'
 import {FiSettings} from 'react-icons/fi'
+import MiniCard from './components/MiniCard'
+import React, {useState} from 'react'
+
 function App() {
+    const [city, setCity] = useState('Buckeye')
+    
+const currentCity = (e) => {
+    if(e.target.textContent){
+      setCity(e.target.textContent) 
+      e.target.className = 'active'
+    } 
+    else setCity(e.target.alt)
+}
+
+
   return <>
   <div className = 'd-flex align-items-center justify-content-center' style ={{height:'100vh',width:'100vw'}}>
     <div className = 'app-container'>
@@ -50,7 +64,7 @@ function App() {
     {Faker.name.firstName()}
   </div>
   <div className="dropdown">
-    <RiArrowDropDownLine style = {{fontSize:'25px'}}/>
+    <RiArrowDropDownLine style = {{fontSize:'30px'}}/>
   </div>
 
 
@@ -62,10 +76,10 @@ function App() {
   <h3 style = {{paddingBottom:'20px',paddingLeft:'20px',width:'269px',alignItems:'center'}}>Weather Forecast</h3>
 
   <div className = 'citys' style = {{padding:'0px'}}>
-    <Cards src = {Az} name = 'Arizona'/>
-      <Cards src = {Italy} name = 'Italy'/>
-     <Cards src = {Paris} name = 'Paris'/>
-     <Cards src = {Spain} name = 'Spain'/>
+    <Cards  activeF = {currentCity} src = {Az} name = 'Arizona'/>
+    <Cards activeF = {currentCity} src = {Italy} name = 'Italy'/>
+    <Cards activeF = {currentCity} src = {Paris} name = 'Paris'/>
+    <Cards activeF= {currentCity}src = {Spain} name = 'Spain'/>
   </div>
 </div>
 
@@ -90,47 +104,19 @@ function App() {
 
 </Row> */}
 <div className="slider">
-<h3 style = {{paddingBottom:'20px',paddingLeft:'20px',width:'269px',alignItems:'center'}}>Buckeye</h3>
+<h3 style = {{paddingBottom:'20px',paddingLeft:'20px',width:'269px',alignItems:'center'}}>{city}</h3>
 <div className="daily-slider">
-  <div className="mini-card">
-  <div className=""><img src= {Sun} height = '50px' alt="" />
-    
-    </div>
-    12 Tue
-  </div>
-  <div className="mini-card">
-  <div className=""><img src= {Sun} height = '50px' alt="" />
-    
-    </div>
-    12 Tue
-  </div>
-  <div className="mini-card">
-  <div className=""><img src= {Sun} height = '50px' alt="" />
-    
-    </div>
-    12 Tue
-  </div>
-  <div className="mini-card">
-  <div className=""><img src= {Sun} height = '50px' alt="" />
-    
-    </div>
-    12 Tue
-  </div>
-  <div className="mini-card">
-  <div className=""><img src= {Sun} height = '50px' alt="" />
-    
-    </div>
-    12 Tue
-  </div>
-  <div className="mini-card">
-  <div className=""><img src= {Sun} height = '50px' alt="" />
-    
-    </div>
-    12 Tue
-  </div>
-</div>
-</div>
+ 
+  <MiniCard pic = {Sun} height/>
+  <MiniCard pic = {Sun} height/>
+  <MiniCard pic = {Sun} height/>
+  <MiniCard pic = {Sun} height/>
+  <MiniCard pic = {Sun} height/>
+  <MiniCard pic = {Sun} height/>
+  <MiniCard pic = {Sun} height/>
 
+</div>
+</div>
 </div>
 
 
