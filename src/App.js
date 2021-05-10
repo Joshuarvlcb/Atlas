@@ -67,9 +67,9 @@ const currentCity = (e) => {
 
 
          <Nav className = 'd-flex flex-column' style = {{paddingLeft:'25px',height:'205px'}}>
-      <NavLinks name = 'Daily' logo = {<BiHome color = 'white' style = {{paddingRight:'10px',height:'33px',width:'33px'}} />} />
-      <NavLinks name = 'Hours' logo = {<Ri24HoursLine color = 'white' style = {{paddingRight:'10px',height:'33px',width:'33px'}} />} />
-      <NavLinks name = 'Weekly' logo = {<BiCalendarWeek color = 'white' style = {{paddingRight:'10px',height:'33px',width:'33px'}} />} />
+      <NavLinks name = 'Today' logo = {<BiHome color = 'white' style = {{paddingRight:'10px',height:'33px',width:'33px'}} />} />
+      <NavLinks name = 'Hourly' logo = {<Ri24HoursLine color = 'white' style = {{paddingRight:'10px',height:'33px',width:'33px'}} />} />
+      <NavLinks name = 'Daily' logo = {<BiCalendarWeek color = 'white' style = {{paddingRight:'10px',height:'33px',width:'33px'}} />} />
       <NavLinks name = 'Settings' logo = {<FiSettings color = 'white' style = {{paddingRight:'10px',height:'33px',width:'33px'}} />} />
 
       

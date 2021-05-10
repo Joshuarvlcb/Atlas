@@ -14,15 +14,7 @@ const Cards = ({activeF,data}) => {
             </div>
         )
     })
-
-
-}
-
-
-
-        </>
+    }</>
     )
-
-
 }
 export default Cards
