@@ -6,13 +6,15 @@ import Sun from './assests/sunny.png'
 import { BiHome } from "react-icons/bi";
 import {Ri24HoursLine} from 'react-icons/ri'
 import Faker from 'faker'
-
+import {BiCalendarWeek} from 'react-icons/bi'
 import Cards from './components/Cards.jsx'
 import Az from './assests/az-background.jpg'
 import Italy from './assests/italy-background.jpg'
 import Paris from './assests/paris.bg.jpg'
+import Spain from './assests/spain-bg.jpg'
 import {Nav} from 'react-bootstrap'
 import DailyCard from './components/DailyCard'
+import {FiSettings} from 'react-icons/fi'
 function App() {
   return <>
   <div className = 'd-flex align-items-center justify-content-center' style ={{height:'100vh',width:'100vw'}}>
@@ -24,8 +26,10 @@ function App() {
          <Nav className = 'd-flex flex-column' style = {{paddingLeft:'25px',height:'205px'}}>
       <NavLinks name = 'Daily' logo = {<BiHome color = 'white' style = {{paddingRight:'10px',height:'33px',width:'33px'}} />} />
       <NavLinks name = 'Hours' logo = {<Ri24HoursLine color = 'white' style = {{paddingRight:'10px',height:'33px',width:'33px'}} />} />
+      <NavLinks name = 'Weekly' logo = {<BiCalendarWeek color = 'white' style = {{paddingRight:'10px',height:'33px',width:'33px'}} />} />
+      <NavLinks name = 'Settings' logo = {<FiSettings color = 'white' style = {{paddingRight:'10px',height:'33px',width:'33px'}} />} />
 
-
+      
            </Nav>
 
 <DailyCard/>
@@ -46,7 +50,7 @@ function App() {
     {Faker.name.firstName()}
   </div>
   <div className="dropdown">
-    <RiArrowDropDownLine/>
+    <RiArrowDropDownLine style = {{fontSize:'25px'}}/>
   </div>
 
 
@@ -61,6 +65,7 @@ function App() {
     <Cards src = {Az} name = 'Arizona'/>
       <Cards src = {Italy} name = 'Italy'/>
      <Cards src = {Paris} name = 'Paris'/>
+     <Cards src = {Spain} name = 'Spain'/>
   </div>
 </div>
 
