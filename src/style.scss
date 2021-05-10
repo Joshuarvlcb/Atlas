@@ -1,0 +1,37 @@
+*,*::after,*::before{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+.app-container{
+  width: 80vw;
+  height: 90vh;
+  background-color: rgb(243, 243, 243);
+  border-radius: 25px;
+
+  .nav-container{
+    height: 100%;
+    width: 250px;
+    background-color: rgb(247, 165, 176);
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+  }
+}
+.logo-con{
+  padding-right: 50px;
+  margin-bottom: 50px;
+  padding-top: 10px;
+}
+.padding{
+  margin-right: 7px;
+
+  color: rgb(255, 255, 103);
+}
+
+.card-con{
+  width: 93%;
+  height: 320px;
+  background-color: white;
+  margin: 0px;
+  border-radius: 20px;
+}
