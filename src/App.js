@@ -14,6 +14,7 @@ import Chart from "./components/Chart";
 import { BrowserRouter as Router, Switch as S, Route } from "react-router-dom";
 import weather from './assests/weather.json'
 import Settings from './components/Settings'
+import HourlySlider from "./components/HourlySlider.jsx";
 //We need router to add the ability ro handle routing in react
 function App() {
   const [city, setCity] = useState("Arizona");
@@ -52,9 +53,9 @@ function App() {
       for(let i = 0; i < 48; i++){
         this.hourly.push(weather['hourly'][i])
       }
-      console.table(this.hourly)
-      console.table(this.today)
-      console.table(this.daily)
+      // console.table(this.hourly)
+      // console.table(this.today)
+      // console.table(this.daily)
     },
     daily: weather['daily'].slice(0, 7),
   }
@@ -140,7 +141,8 @@ function App() {
               <Route
                 path="/slider"
                 component={() => {
-                  return <Slider arr={data[activePage]} city={city} active = {activePage} />;
+                  return (activePage !== "hourly") ? (<Slider arr={data[activePage]} city={city} active = {activePage}/>)
+                   : (<HourlySlider arr = {data['hourly']} city = {city} active = {activePage}/>);
                 }}
               />
             </Router> 

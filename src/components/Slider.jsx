@@ -6,10 +6,6 @@ const Slider = ({ arr, city, active }) => {
 
   const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
-    const needArrows = () => {
-        return (arr.length > 7)
-    }
-
   return (
     <div className="slider">
       <h3
@@ -24,7 +20,7 @@ const Slider = ({ arr, city, active }) => {
       </h3>
       <div className="daily-slider">
         {arr.map((card, i) => {
-          return <MiniCard pic={Sun} className = {`${active}${i}`} temp = {(active === 'daily') ? card.temp.day : card.temp} text={days[i]}/>;
+          return <MiniCard key = {`weather${i}`} pic={Sun} className = {`${active}${i}`} temp = {(active === 'daily') ? card.temp.day : card.temp} text={days[i]}/>;
         })}
       </div>
     </div>
