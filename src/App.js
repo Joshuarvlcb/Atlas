@@ -17,7 +17,7 @@ import weather from './assests/weather.json'
 //We need router to add the ability ro handle routing in react
 function App() {
   const [city, setCity] = useState("Click A Location");
-  const [active, setActive] = useState('today')
+  const [activePage, setActivePage] = useState('today')
   const [cityData, setCityData] = useState([
     {
       id: 1,
@@ -53,25 +53,6 @@ function App() {
 
   const [current, setCurrent] = useState(data.today);
 
-  const currentData = (e) => {
-    e.preventDefault();
-
-    let name = e.target.textContent.toLowerCase().trim();
-
-    switch (name) {
-      case "daily":
-        setCurrent(data.daily);
-        break;
-      case "hourly":
-        setCurrent(data.hourly);
-        break;
-      case "today":
-        setCurrent(data.today);
-        break;
-    }
-    console.log(current, name);
-    // setCurrent(data[name]);
-  };
 
   const cityName = (e) => {
     let target;
@@ -105,7 +86,7 @@ function App() {
         style={{ height: "100vh", width: "100vw", backgroundColor: "#4FA1CA" }}
       >
         <div className="app-container">
-          <Navbar setActive  = {(val) => {setActive(val)}} />
+          <Navbar setActive  = {(val) => {setActivePage(val)}}/>
           {/* weather forecast */}
 
           <div className="forcast-con">
@@ -197,7 +178,7 @@ function App() {
   </Col>
 
 </Row> */}
-          <Slider object = {data[active]} city = {city} active = {active}/> 
+          <Slider object = {data[activePage]} city = {city} active = {activePage  }/> 
 
 
         {/* <Row >
