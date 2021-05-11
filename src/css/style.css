@@ -1,4 +1,6 @@
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   padding: 0px;
   margin: 0px;
   -webkit-box-sizing: border-box;
@@ -63,7 +65,7 @@
 }
 
 .slider {
-  height: 50%;
+  height: 45%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -89,10 +91,10 @@
 }
 
 .slider .daily-slider .mini-card {
-  height: 110px;
+  height: 120px;
   width: 80px;
   border-radius: 15px;
-  background-color: #e9e8e9;
+  background-color: #ececec;
   padding: 0px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -104,9 +106,9 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   border: 2px solid gray;
   color: gray;
 }
@@ -163,10 +165,17 @@
 .active {
   -webkit-transform: translateY(-13px);
           transform: translateY(-13px);
-  color: #4FA1CA;
-  -webkit-transition: -webkit-transform .3s ease;
-  transition: -webkit-transform .3s ease;
-  transition: transform .3s ease;
-  transition: transform .3s ease, -webkit-transform .3s ease;
+  color: #4fa1ca;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
+.details {
+  cursor: pointer;
+  width: 95%;
+  text-align: right;
+  color: #4fa1ca;
 }
 /*# sourceMappingURL=style.css.map */
