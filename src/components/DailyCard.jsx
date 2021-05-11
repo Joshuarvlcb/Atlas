@@ -3,7 +3,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Sun from '../assests/sunny.png'
 import ProgressBar from 'react-bootstrap/ProgressBar'
-const DailyCard = () => {
+const DailyCard = ({temp,cityDaily}) => {
     return  (
         <>
         <Container className = 'd-flex justify-content-center align-items-center' style = {{height:'55%'}}>
@@ -24,9 +24,12 @@ const DailyCard = () => {
 
     <Row  >
         <Col className = 'd-flex  flex-column align-items-center'>
-          <div style = {{fontSize:'40px',fontWeight:'600'}}>105°</div>
-          <div style = {{fontSize:'20px',fontWeight:'500'}}>Buckeye</div>
-          <div style = {{fontSize:'13px',color:'rgba(0, 0, 0, 0.6.5)'}}>United States</div>
+
+  <div style = {{fontSize:'40px',fontWeight:'600'}}>{temp.temp.toFixed(0)}°</div>
+
+          <div style = {{fontSize:'20px',fontWeight:'500'}}>{cityDaily.city}</div>
+
+          <div style = {{fontSize:'13px',color:'rgba(0, 0, 0, 0.6.5)'}}>{cityDaily.country}</div>
 
         </Col>
     </Row>
@@ -35,27 +38,27 @@ const DailyCard = () => {
         <Col className = 'd-flex justify-content-around'>
         <div style = {{fontWeight:'500'}}>Humidity:</div>
 
-        <div style = {{fontWeight:'500'}}>70%</div>
+  <div style = {{fontWeight:'500'}}>{temp.humidity}%</div>
         </Col>
 
     </Row>
     <Row  >
       <Col className = 'd-flex justify-content-center mt-1'>
-      <ProgressBar now = {70} style = {{height:'5px',padding:'0px',width:'80%'}} />
+      <ProgressBar now = {temp.humidity} style = {{height:'5px',padding:'0px',width:'80%'}} />
       </Col>
      
     </Row>
     <Row className = 'mt-2'>
         <Col className = 'd-flex justify-content-around'>
-        <div style = {{fontWeight:'500'}}>Percipitation:</div>
+        <div style = {{fontWeight:'500'}}>Wind Speed:</div>
 
-        <div style = {{fontWeight:'500'}}>20%</div>
+  <div style = {{fontWeight:'500'}}>{temp.wind} mph</div>
         </Col>
 
     </Row>
     <Row  >
       <Col className = 'd-flex justify-content-center mt-1'>
-      <ProgressBar now = {20} style = {{height:'5px',padding:'0px',width:'80%'}} />
+      <ProgressBar now = {temp.wind} style = {{height:'5px',padding:'0px',width:'80%'}} />
       </Col>
      
     </Row>

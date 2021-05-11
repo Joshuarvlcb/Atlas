@@ -9,7 +9,7 @@ import { BiCalendarWeek } from "react-icons/bi";
 import { FiSettings } from "react-icons/fi";
 import Logo from "../assests/weather-logo.png";
 
-const Navbar = ({ setActive }) => {
+const Navbar = ({ setActive,temp,cityDaily }) => {
   return (
     <div className="nav-container" style={{ margin: "0" }}>
       <Header logo={Logo} />
@@ -62,7 +62,7 @@ const Navbar = ({ setActive }) => {
           }
         />
       </Nav>
-      <DailyCard />
+      <DailyCard cityDaily = {cityDaily} temp = {temp}/>
     </div>
   );
 };

@@ -1,9 +1,16 @@
 
 
-const MiniCard = ({pic, temp, text}) => {
+const MiniCard = ({pic, temp, text,miniData,arr}) => {
     return (
         <>
- <div className="mini-card " style = {{cursor:'pointer',width:'120px',position:'relative'}}>
+ <div onClick = {() => {
+let clicked = arr.findIndex(obj => {
+  return obj.temp == temp
+})
+
+miniData(temp,text,arr[clicked].humidity,arr[clicked].wind_speed)
+console.log(arr)
+ } } className="mini-card " style = {{cursor:'pointer',width:'120px',position:'relative'}}>
   <div className="d-flex justify-content-center"><img src= {pic} width = '80px' alt=""  style = {{position:'absolute',top:'-8%'}}/>
       
     </div>
