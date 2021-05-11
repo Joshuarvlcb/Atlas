@@ -13,6 +13,8 @@ import { FaArrowRight } from "react-icons/fa";
 import Chart from "./components/Chart";
 import { BrowserRouter as Router, Switch as S, Route } from "react-router-dom";
 import weather from './assests/weather.json'
+import Settings from './components/Settings'
+import HourlySlider from "./components/HourlySlider.jsx";
 //We need router to add the ability ro handle routing in react
 function App() {
   const [cityDaily,setCityDaily] = useState(
@@ -134,7 +136,7 @@ function App() {
           <Navbar cityDaily = {cityDaily} temp = {temp} setActive  = {(val) => {setActivePage(val)}}/>
           {/* weather forecast */}
 
-          <div className="forcast-con">
+        {(activePage !== "settings") ? (<div className="forcast-con">
             <div
               className="d-flex justify-content-end align-items-center"
               style={{ width: "95%", height: "20%" }}
@@ -177,12 +179,14 @@ function App() {
               <Route
                 path="/slider"
                 component={() => {
-                  return <Slider miniData = {miniCardData} arr={data[activePage]} city={city} active = {activePage} />;
+                  return (activePage !== "hourly") ? (<Slider miniData = {miniCardData} arr={data[activePage]} city={city} active = {activePage}/>)
+                   : (<HourlySlider miniData = {miniCardData} arr = {data['hourly']} city = {city} active = {activePage}/>);
                 }}
               />
             </Router> 
              
-            </div>
+            </div>) : <Settings/>}
+          
 
            
           </div>

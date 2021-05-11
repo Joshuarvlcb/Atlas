@@ -7,6 +7,7 @@ const Cards = ({ activeF, data }) => {
             className={curr.active ? "active" : ""}
             onClick={activeF}
             style={{ padding: "0px", cursor: "pointer",transition:'all ease .3s' }}
+            key = {`card${i}`}
           >
             <img
               src={curr.src}

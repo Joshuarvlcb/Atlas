@@ -19,12 +19,12 @@ const Navbar = ({ setActive,temp,cityDaily }) => {
         style={{ paddingLeft: "25px", height: "205px" }}
       >
         <NavLinks
-
+          active = {(active === 'today')}
           name="Today"
           logo={
             <BiHome
               color="white"
-              style={{ paddingRight: "10px", height: "33px", width: "33px" }}
+              style={{ paddingRight: "10px", height: "33px", width: "33px"}}
             />
           }
         onclick = {() => setActive('today')}
@@ -32,6 +32,7 @@ const Navbar = ({ setActive,temp,cityDaily }) => {
         </NavLinks>
 
         <NavLinks
+          active = {(active === 'hourly')}
           name="Hourly"
           logo={
             <Ri24HoursLine
@@ -42,7 +43,7 @@ const Navbar = ({ setActive,temp,cityDaily }) => {
           onclick = {() => setActive('hourly')}
         />
         <NavLinks
-
+          active = {(active === 'daily')}
           name="Daily"
           logo={
             <BiCalendarWeek
@@ -60,6 +61,7 @@ const Navbar = ({ setActive,temp,cityDaily }) => {
               style={{ paddingRight: "10px", height: "33px", width: "33px" }}
             />
           }
+          onclick = {() => setActive('settings')}
         />
       </Nav>
       <DailyCard cityDaily = {cityDaily} temp = {temp}/>
