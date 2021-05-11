@@ -11,6 +11,7 @@ const Cards = ({activeF,data}) => {
 
             <div  style = {{fontWeight:'500',textAlign:'center'}}>{curr.name}</div>
 
+            
             </div>
         )
     })
