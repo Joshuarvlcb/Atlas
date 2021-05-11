@@ -9,7 +9,7 @@ import { BiCalendarWeek } from "react-icons/bi";
 import { FiSettings } from "react-icons/fi";
 import Logo from "../assests/weather-logo.png";
 
-const Navbar = ({ setActive }) => {
+const Navbar = ({ setActive, active }) => {
   return (
     <div className="nav-container" style={{ margin: "0" }}>
       <Header logo={Logo} />
@@ -19,12 +19,12 @@ const Navbar = ({ setActive }) => {
         style={{ paddingLeft: "25px", height: "205px" }}
       >
         <NavLinks
-
+          active = {(active === 'today')}
           name="Today"
           logo={
             <BiHome
               color="white"
-              style={{ paddingRight: "10px", height: "33px", width: "33px" }}
+              style={{ paddingRight: "10px", height: "33px", width: "33px"}}
             />
           }
         onclick = {() => setActive('today')}
@@ -32,6 +32,7 @@ const Navbar = ({ setActive }) => {
         </NavLinks>
 
         <NavLinks
+          active = {(active === 'hourly')}
           name="Hourly"
           logo={
             <Ri24HoursLine
@@ -42,7 +43,7 @@ const Navbar = ({ setActive }) => {
           onclick = {() => setActive('hourly')}
         />
         <NavLinks
-
+          active = {(active === 'daily')}
           name="Daily"
           logo={
             <BiCalendarWeek
@@ -60,6 +61,7 @@ const Navbar = ({ setActive }) => {
               style={{ paddingRight: "10px", height: "33px", width: "33px" }}
             />
           }
+          onclick = {() => setActive('settings')}
         />
       </Nav>
       <DailyCard />

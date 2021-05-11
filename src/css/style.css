@@ -25,7 +25,11 @@
   border-top-left-radius: 25px;
 }
 
-.app-container .nav-container .nav .nav-link.active {
+.app-container .nav-container .nav .nav-link {
+  border-left: 4px solid transparent;
+}
+
+.app-container .nav-container .nav .nav-link.activeTab {
   border-left: 4px solid #f3f3f3;
 }
 

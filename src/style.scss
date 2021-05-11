@@ -21,8 +21,13 @@
     border-top-left-radius: 25px;
 
     .nav{
-      .nav-link.active{
-        border-left: 4px solid rgb(243, 243, 243)
+      .nav-link{
+        border-left: 4px solid transparent;
+        &.activeTab{
+          border-left: 4px solid rgb(243, 243, 243)
+        }
+      }
+      .nav-link.activeTab{
       }
     }
 
