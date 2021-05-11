@@ -15,13 +15,13 @@ import { BrowserRouter as Router, Switch as S, Route } from "react-router-dom";
 import weather from './assests/weather.json'
 //We need router to add the ability ro handle routing in react
 function App() {
-  const [city, setCity] = useState("Click A Location");
+  const [city, setCity] = useState("Arizona");
   const [activePage, setActivePage] = useState('today')
   const [cityData, setCityData] = useState([
     {
       id: 1,
       name: "Arizona",
-      active: false,
+      active: true,
       src: Az,
     },
     {
@@ -45,12 +45,19 @@ function App() {
   ]);
 
   const data = {
-    today: [6, 13, 17, 21],
-    hourly: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47],
-    daily: weather.daily,
+    today: [weather['hourly'][4], weather['hourly'][11], weather['hourly'][16], weather['hourly'][22]],
+    hourly: [],
+    grabHourly(){
+      for(let i = 0; i < 48; i++){
+        this.hourly.push(weather['hourly'][i])
+      }
+      console.table(this.hourly)
+      console.table(this.today)
+      console.table(this.daily)
+    },
+    daily: weather['daily'].slice(0, 7),
   }
 
-  const [current, setCurrent] = useState(data.today);
 
 
   const cityName = (e) => {
@@ -80,6 +87,7 @@ function App() {
 
   return (
     <>
+      {data.grabHourly()}
       <div
         className="d-flex align-items-center justify-content-center"
         style={{ height: "100vh", width: "100vw", backgroundColor: "#4FA1CA" }}
