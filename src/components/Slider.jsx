@@ -7,7 +7,8 @@ const Slider = ({ object, city }) => {
         <h3 style = {{paddingBottom:'20px',paddingLeft:'20px',width:'269px',alignItems:'center'}}>{city}</h3>
         <div className="daily-slider">
             {object.map( (card, i) => {
-                return <MiniCard pic = {Sun} height/>
+                return <MiniCard pic = {Sun} height key = {i}/>
+                
             })}
         </div>
     </div>

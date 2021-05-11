@@ -12,7 +12,6 @@ import GuestIcon from './assests/guest-icon.png'
 
 
 function App() {
-  const [clicked,setClicked] = useState('')
     const [city, setCity] = useState('Buckeye')
     const [cityData, setCityData] = useState([
         {
@@ -50,7 +49,14 @@ function App() {
       hourly: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
       daily: ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
     }
-   
+    const [current,setCurrent] = useState(data.today)
+
+const currentData = (e) => {
+  e.preventDefault()
+  console.log(e.target.textContent)
+
+  setCurrent(e.target.textContent)
+}
 
 const cityName = (e) => {
   let target
@@ -60,7 +66,6 @@ const cityName = (e) => {
   }
   else {
     setCity(e.target.alt)
-  setClicked(e.target.alt)
   target = e.target.alt
 
   console.log(e.target.alt)
@@ -89,7 +94,7 @@ const active = (e) => {
   <div className = 'd-flex align-items-center justify-content-center' style ={{height:'100vh',width:'100vw',  backgroundColor: '#4FA1CA'
 }}>
     <div className = 'app-container'>
-    <Navbar/>
+    <Navbar currentData = {currentData}/>
 {/* weather forecast */}
 
         <div className="forcast-con">
@@ -139,7 +144,8 @@ const active = (e) => {
   </Col>
 
 </Row> */}
-  <Slider object = {data.today} city = {city}/>
+  <Slider object = {current} city = {city}/>
+
 </div>
 
 

@@ -10,14 +10,19 @@ import {FiSettings} from 'react-icons/fi'
 import Logo from '../assests/weather-logo.png'
 
 
-const Navbar = () => {
+const Navbar = ({currentData}) => {
     return <div className = 'nav-container' style = {{margin:'0'}}>
     <Header logo = {Logo}/>
 
-    <Nav className = 'd-flex flex-column' style = {{paddingLeft:'25px',height:'30%'}}>
-    <NavLinks name = 'Today' logo = {<BiHome color = 'white' style = {{paddingRight:'10px',height:'33px',width:'33px'}} />} />
-    <NavLinks name = 'Hourly' logo = {<Ri24HoursLine color = 'white' style = {{paddingRight:'10px',height:'33px',width:'33px'}} />} />
-    <NavLinks name = 'Daily' logo = {<BiCalendarWeek color = 'white' style = {{paddingRight:'10px',height:'33px',width:'33px'}} />} />
+    <Nav  className = 'd-flex flex-column' style = {{paddingLeft:'25px',height:'30%'}}>
+    <NavLinks    name = 'Today' logo = {<BiHome color = 'white' style = {{paddingRight:'10px',height:'33px',width:'33px'}} />}> <div onClick = {currentData}></div> </NavLinks>   
+    
+    <NavLinks onClick = {() => console.log('hi')} name = 'Hourly' logo = {<Ri24HoursLine color = 'white' style = {{paddingRight:'10px',height:'33px',width:'33px'}} />} />
+
+    <NavLinks  name = 'Daily' logo = {<BiCalendarWeek color = 'white' style = {{paddingRight:'10px',height:'33px',width:'33px'}} />}> 
+    
+    </NavLinks> 
+
     <NavLinks name = 'Settings' logo = {<FiSettings color = 'white' style = {{paddingRight:'10px',height:'33px',width:'33px'}} />} />
     </Nav>
     <DailyCard/>
