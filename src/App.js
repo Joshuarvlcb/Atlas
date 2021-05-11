@@ -8,14 +8,16 @@ import Spain from "./assests/spain-bg.jpg";
 import React, { useState } from "react";
 import Slider from "./components/Slider";
 import Navbar from "./components/Navbar";
+import GuestIcon from "./assests/guest-icon.png";
+import Switch from "react-bootstrap/esm/Switch";
+import { FaArrowRight } from "react-icons/fa";
+import Chart from "./components/Chart";
+import { BrowserRouter as Router, Switch as S, Route } from "react-router-dom";
 import weather from './assests/weather.json'
-
+//We need router to add the ability ro handle routing in react
 function App() {
-
-  console.table(weather.hourly)
-
+  const [city, setCity] = useState("Click A Location");
   const [active, setActive] = useState('today')
-  const [city, setCity] = useState("Buckeye");
   const [cityData, setCityData] = useState([
     {
       id: 1,
@@ -43,20 +45,58 @@ function App() {
     },
   ]);
 
-  
-
-  const currentCity = (e) => {
-    if (e.target.textContent) {
-      setCity(e.target.textContent);
-      e.target.className = "active";
-    } else setCity(e.target.alt);
-  };
-
   const data = {
     today: [6, 13, 17, 21],
     hourly: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47],
     daily: weather.daily,
   }
+
+  const [current, setCurrent] = useState(data.today);
+
+  const currentData = (e) => {
+    e.preventDefault();
+
+    let name = e.target.textContent.toLowerCase().trim();
+
+    switch (name) {
+      case "daily":
+        setCurrent(data.daily);
+        break;
+      case "hourly":
+        setCurrent(data.hourly);
+        break;
+      case "today":
+        setCurrent(data.today);
+        break;
+    }
+    console.log(current, name);
+    // setCurrent(data[name]);
+  };
+
+  const cityName = (e) => {
+    let target;
+    if (e.target.textContent) {
+      setCity(e.target.textContent);
+      target = e.target.textContent;
+    } else {
+      setCity(e.target.alt);
+      target = e.target.alt;
+    }
+
+    setCityData(
+      cityData.map((obj) => {
+        if (obj.name == target) {
+          return { ...obj, active: (obj.active = true) };
+        } else if (obj.active) {
+          return { ...obj, active: !obj.active };
+        }
+        return target === obj.name ? { ...obj, active: !obj.active } : obj;
+      })
+    );
+  };
+  const activeCity = (e) => {
+    cityName(e);
+  };
 
   return (
     <>
@@ -75,9 +115,9 @@ function App() {
             >
               <div className="icon">
                 <div className="icon-pic">
-                  <img src={Faker.image.avatar()} alt="" />
+                  <img src={GuestIcon} alt="" />
                 </div>
-                <div className="name">{Faker.name.firstName()}</div>
+                <div className="name">Guest</div>
                 <div className="dropdown">
                   <RiArrowDropDownLine style={{ fontSize: "30px" }} />
                 </div>
@@ -97,21 +137,44 @@ function App() {
               </h3>
 
               <div className="citys" style={{ padding: "0px" }}>
-                <Cards activeF={currentCity} data={cityData} />
+                <Cards activeF={activeCity} data={cityData} />
               </div>
             </div>
 
             {/* 
             </div>
 
-          </div>
+            <div className="weather-forcast" style={{ height: "30%" }}>
+              <h3
+                style={{
+                  paddingBottom: "20px",
+                  paddingLeft: "20px",
+                  width: "269px",
+                  alignItems: "center",
+                }}
+              >
+                Weather Forecast
+              </h3>
 
-          <div className='weather-forcast' style={{ height: '30%' }} >
-            <h3 style={{ paddingBottom: '20px', paddingLeft: '20px', width: '269px', alignItems: 'center' }}>Weather Forecast</h3>
-
-            <div className='citys' style={{ padding: '0px' }}>
-              <Cards  data={cityData} clicked = {active} />
+              <div className="citys" style={{ padding: "0px" }}>
+                <Cards data={cityData} clicked={active} />
+              </div>
             </div>
+
+            <div className="details">
+              <h5>
+                Details more <FaArrowRight style={{ marginLeft: "11px" }} />
+              </h5>
+            </div>
+            <Router>
+              <Route path="/chart" component={Chart} />
+              <Route
+                path="/slider"
+                component={() => {
+                  return <Slider object={current} city={cityName} />;
+                }}
+              />
+            </Router>
           </div>
 
 

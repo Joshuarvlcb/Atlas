@@ -12,10 +12,10 @@ const Header = ({ logo }) => {
       >
         <div
           className="d-flex justify-content-center align-items-center"
-          style={{ color: "#4FA1CA", width: "100%" }}
+          style={{ color: "#4FA1CA", width: "100%", fontSize: "30px" }}
         >
           {" "}
-          <img height="40px" src={logo}></img> ATLAS
+          <img height="50px" src={logo}></img> ATLAS
         </div>
       </div>
     </>
