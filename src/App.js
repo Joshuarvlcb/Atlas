@@ -8,6 +8,8 @@ import Spain from './assests/spain-bg.jpg'
 import React, {useState} from 'react'
 import Slider from './components/Slider'
 import Navbar from './components/Navbar'
+import GuestIcon from './assests/guest-icon.png'
+
 
 function App() {
   const [clicked,setClicked] = useState('')
@@ -65,8 +67,11 @@ const cityName = (e) => {
   }
 
     setCityData(cityData.map(obj => {
-      if(obj.active) {
+      if(obj.name == target) {
+        return {...obj, active:obj.active = true} 
+      }else if(obj.active){
         return {...obj, active:!obj.active} 
+
       }
         return (target === obj.name) ? {...obj,active:!obj.active} : obj
     }))
@@ -92,10 +97,10 @@ const active = (e) => {
 
             <div className='icon'>
               <div className="icon-pic">
-                <img src={Faker.image.avatar()} alt="" />
+                <img src={GuestIcon} alt="" />
               </div>
               <div className="name">
-                {Faker.name.firstName()}
+                Guest
               </div>
               <div className="dropdown">
                 <RiArrowDropDownLine style={{ fontSize: '30px' }} />
