@@ -25,6 +25,17 @@
   border-top-left-radius: 25px;
 }
 
+.app-container .nav-container .nav .nav-link {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  border-bottom: 1px solid transparent;
+  width: 10rem;
+}
+
+.app-container .nav-container .nav .nav-link:hover {
+  border-bottom: 1px solid #f3f3f3;
+}
+
 .app-container .nav-container .logo-con div {
   color: #6bb3dd !important;
 }

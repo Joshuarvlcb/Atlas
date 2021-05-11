@@ -20,6 +20,18 @@
     border-bottom-left-radius: 25px;
     border-top-left-radius: 25px;
 
+    .nav{
+      .nav-link{
+        transition: all 0.5s ease;
+        border-bottom: 1px solid transparent;
+        width: 10rem;
+  
+        &:hover{
+          border-bottom: 1px solid rgb(243, 243, 243)
+        }
+      }
+    }
+
     .logo-con {
       div {
         color: rgb(107, 179, 221) !important;

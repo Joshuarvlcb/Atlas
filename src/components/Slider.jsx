@@ -2,10 +2,12 @@ import React from "react";
 import MiniCard from "./MiniCard";
 import Sun from "../assests/sunny.png";
 
-const Slider = ({ object, city, active }) => {
+const Slider = ({ arr, city, active }) => {
+
+  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
     const needArrows = () => {
-        return (object.length > 7)
+        return (arr.length > 7)
     }
 
   return (
@@ -21,8 +23,8 @@ const Slider = ({ object, city, active }) => {
         {city}
       </h3>
       <div className="daily-slider">
-        {object.map((card, i) => {
-          return <MiniCard pic={Sun} height amount = {object.length} className = {`${active}${i}`}/>;
+        {arr.map((card, i) => {
+          return <MiniCard pic={Sun} className = {`${active}${i}`} temp = {(active === 'daily') ? card.temp.day : card.temp}/>;
         })}
       </div>
     </div>
