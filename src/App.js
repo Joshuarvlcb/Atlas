@@ -9,7 +9,6 @@ import React, { useState } from "react";
 import Slider from "./components/Slider";
 import Navbar from "./components/Navbar";
 import GuestIcon from "./assests/guest-icon.png";
-import Switch from "react-bootstrap/esm/Switch";
 import { FaArrowRight } from "react-icons/fa";
 import Chart from "./components/Chart";
 import { BrowserRouter as Router, Switch as S, Route } from "react-router-dom";
@@ -59,7 +58,6 @@ function App() {
     daily: weather['daily'].slice(0, 7),
   }
 
-  const [current, setCurrent] = useState(data.today);
 
 
   const cityName = (e) => {
@@ -130,64 +128,30 @@ function App() {
                 <Cards activeF={activeCity} data={cityData} />
               </div>
             </div>
-
-            {/* 
-            </div>
-
-            <div className="weather-forcast" style={{ height: "30%" }}>
-              <h3
-                style={{
-                  paddingBottom: "20px",
-                  paddingLeft: "20px",
-                  width: "269px",
-                  alignItems: "center",
-                }}
-              >
-                Weather Forecast
-              </h3>
-
-              <div className="citys" style={{ padding: "0px" }}>
-                <Cards data={cityData} clicked={active} />
-              </div>
-            </div>
-
             <div className="details">
               <h5>
                 Details more <FaArrowRight style={{ marginLeft: "11px" }} />
               </h5>
             </div>
-            <Router>
+            
+             <Router>
               <Route path="/chart" component={Chart} />
               <Route
                 path="/slider"
                 component={() => {
-                  return <Slider object={current} city={cityName} />;
+                  return <Slider object={data[activePage]} city={city} active = {activePage} />;
                 }}
               />
-            </Router>
+            </Router> 
+             
+            </div>
+
+           
           </div>
 
 
-          {/* 
-<Row wtyle = {{width:'90%'}}>    
-  <Col style = {{width:'200px'}} className = 'mini-card'>
-   1
-  </Col>
-  <Col className = 'mini-card'>
-   1
-  </Col>
-  <Col className = 'mini-card'>
-   1
-  </Col>
-  <Col className = 'mini-card'>
-   1
-  </Col>
-  <Col className = 'mini-card'>
-   1
-  </Col>
+          
 
-</Row> */}
-          <Slider arr = {data[activePage]} city = {city} active = {activePage}/> 
 
 
         {/* <Row >
@@ -196,8 +160,6 @@ function App() {
 
 </Row> */}
         </div>
-      </div>
-      </div>
     </>
   );
 }

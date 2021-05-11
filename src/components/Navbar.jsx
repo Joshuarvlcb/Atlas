@@ -15,10 +15,11 @@ const Navbar = ({ setActive }) => {
       <Header logo={Logo} />
 
       <Nav
-        className="d-flex flex-column"
+        className="d-flex flex-column justify-content-between"
         style={{ paddingLeft: "25px", height: "205px" }}
       >
         <NavLinks
+
           name="Today"
           logo={
             <BiHome
@@ -31,7 +32,6 @@ const Navbar = ({ setActive }) => {
         </NavLinks>
 
         <NavLinks
-          onClick={() => console.log("hi")}
           name="Hourly"
           logo={
             <Ri24HoursLine
@@ -42,6 +42,7 @@ const Navbar = ({ setActive }) => {
           onclick = {() => setActive('hourly')}
         />
         <NavLinks
+
           name="Daily"
           logo={
             <BiCalendarWeek
