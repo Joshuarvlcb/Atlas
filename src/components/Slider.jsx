@@ -24,7 +24,7 @@ const Slider = ({ arr, city, active }) => {
       </h3>
       <div className="daily-slider">
         {arr.map((card, i) => {
-          return <MiniCard pic={Sun} className = {`${active}${i}`} temp = {(active === 'daily') ? card.temp.day : card.temp}/>;
+          return <MiniCard pic={Sun} className = {`${active}${i}`} temp = {(active === 'daily') ? card.temp.day : card.temp} text={days[i]}/>;
         })}
       </div>
     </div>

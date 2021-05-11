@@ -1,6 +1,6 @@
 
 
-const MiniCard = ({pic, temp}) => {
+const MiniCard = ({pic, temp, text}) => {
     return (
         <>
  <div className="mini-card " style = {{cursor:'pointer',width:'120px',position:'relative'}}>
@@ -9,7 +9,7 @@ const MiniCard = ({pic, temp}) => {
     </div>
     <div className="d-flex flex-column align-items-center" style = {{position:'absolute',top:'50%'}}>
     <div className="deg">{temp}</div>
-    <div className="date">Tue</div>
+    <div className="date">{text}</div>
 
     </div>
   </div>

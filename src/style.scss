@@ -21,14 +21,8 @@
     border-top-left-radius: 25px;
 
     .nav{
-      .nav-link{
-        transition: all 0.5s ease;
-        border-bottom: 1px solid transparent;
-        width: 10rem;
-  
-        &:hover{
-          border-bottom: 1px solid rgb(243, 243, 243)
-        }
+      .nav-link.active{
+        border-left: 4px solid rgb(243, 243, 243)
       }
     }
 
