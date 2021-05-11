@@ -19,6 +19,7 @@ const Navbar = ({ currentData }) => {
         style={{ paddingLeft: "25px", height: "30%" }}
       >
         <NavLinks
+          currentData={currentData}
           name="Today"
           logo={
             <BiHome
@@ -32,6 +33,7 @@ const Navbar = ({ currentData }) => {
         </NavLinks>
 
         <NavLinks
+          currentData={currentData}
           onClick={() => console.log("hi")}
           name="Hourly"
           logo={
@@ -43,6 +45,7 @@ const Navbar = ({ currentData }) => {
         />
 
         <NavLinks
+          currentData={currentData}
           name="Daily"
           logo={
             <BiCalendarWeek
