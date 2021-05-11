@@ -68,7 +68,7 @@ const cityName = (e) => {
       if(obj.active) {
         return {...obj, active:!obj.active} 
       }
-        return (target === obj.name) ? {...obj,active:!obj.active} : obj
+        return (target === obj.name) ? {...obj,active:obj.active = true} : obj
     }))
     console.table(cityData)
 

@@ -163,7 +163,7 @@
 .active {
   -webkit-transform: translateY(-13px);
           transform: translateY(-13px);
-  color: blue;
+  color: #4FA1CA;
   -webkit-transition: -webkit-transform .3s ease;
   transition: -webkit-transform .3s ease;
   transition: transform .3s ease;
