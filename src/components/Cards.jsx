@@ -6,7 +6,7 @@ const Cards = ({ activeF, data }) => {
           <div
             className={curr.active ? "active" : ""}
             onClick={activeF}
-            style={{ padding: "0px", cursor: "pointer" }}
+            style={{ padding: "0px", cursor: "pointer",transition:'all ease .3s' }}
           >
             <img
               src={curr.src}

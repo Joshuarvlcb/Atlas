@@ -9,7 +9,6 @@ import React, { useState } from "react";
 import Slider from "./components/Slider";
 import Navbar from "./components/Navbar";
 import GuestIcon from "./assests/guest-icon.png";
-import Switch from "react-bootstrap/esm/Switch";
 import { FaArrowRight } from "react-icons/fa";
 import Chart from "./components/Chart";
 import { BrowserRouter as Router, Switch as S, Route } from "react-router-dom";
@@ -17,7 +16,7 @@ import weather from './assests/weather.json'
 //We need router to add the ability ro handle routing in react
 function App() {
   const [city, setCity] = useState("Click A Location");
-  const [active, setActive] = useState('today')
+  const [activePage, setActivePage] = useState('today')
   const [cityData, setCityData] = useState([
     {
       id: 1,
@@ -53,25 +52,6 @@ function App() {
 
   const [current, setCurrent] = useState(data.today);
 
-  const currentData = (e) => {
-    e.preventDefault();
-
-    let name = e.target.textContent.toLowerCase().trim();
-
-    switch (name) {
-      case "daily":
-        setCurrent(data.daily);
-        break;
-      case "hourly":
-        setCurrent(data.hourly);
-        break;
-      case "today":
-        setCurrent(data.today);
-        break;
-    }
-    console.log(current, name);
-    // setCurrent(data[name]);
-  };
 
   const cityName = (e) => {
     let target;
@@ -105,7 +85,7 @@ function App() {
         style={{ height: "100vh", width: "100vw", backgroundColor: "#4FA1CA" }}
       >
         <div className="app-container">
-          <Navbar currentData = {currentData} />
+          <Navbar setActive  = {(val) => {setActivePage(val)}}/>
           {/* weather forecast */}
 
           <div className="forcast-con">
@@ -140,64 +120,30 @@ function App() {
                 <Cards activeF={activeCity} data={cityData} />
               </div>
             </div>
-
-            {/* 
-            </div>
-
-            <div className="weather-forcast" style={{ height: "30%" }}>
-              <h3
-                style={{
-                  paddingBottom: "20px",
-                  paddingLeft: "20px",
-                  width: "269px",
-                  alignItems: "center",
-                }}
-              >
-                Weather Forecast
-              </h3>
-
-              <div className="citys" style={{ padding: "0px" }}>
-                <Cards data={cityData} clicked={active} />
-              </div>
-            </div>
-
             <div className="details">
               <h5>
                 Details more <FaArrowRight style={{ marginLeft: "11px" }} />
               </h5>
             </div>
-            <Router>
+            
+             <Router>
               <Route path="/chart" component={Chart} />
               <Route
                 path="/slider"
                 component={() => {
-                  return <Slider object={current} city={cityName} />;
+                  return <Slider object={data[activePage]} city={city} active = {activePage} />;
                 }}
               />
-            </Router>
+            </Router> 
+             
+            </div>
+
+           
           </div>
 
 
-          {/* 
-<Row wtyle = {{width:'90%'}}>    
-  <Col style = {{width:'200px'}} className = 'mini-card'>
-   1
-  </Col>
-  <Col className = 'mini-card'>
-   1
-  </Col>
-  <Col className = 'mini-card'>
-   1
-  </Col>
-  <Col className = 'mini-card'>
-   1
-  </Col>
-  <Col className = 'mini-card'>
-   1
-  </Col>
+          
 
-</Row> */}
-          <Slider object = {current} city = {city} active = {active}/> 
 
 
         {/* <Row >
@@ -206,8 +152,6 @@ function App() {
 
 </Row> */}
         </div>
-      </div>
-      </div>
     </>
   );
 }
