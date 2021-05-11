@@ -102,6 +102,20 @@ function App() {
             </div>
 
             {/* 
+            </div>
+
+          </div>
+
+          <div className='weather-forcast' style={{ height: '30%' }} >
+            <h3 style={{ paddingBottom: '20px', paddingLeft: '20px', width: '269px', alignItems: 'center' }}>Weather Forecast</h3>
+
+            <div className='citys' style={{ padding: '0px' }}>
+              <Cards  data={cityData} clicked = {active} />
+            </div>
+          </div>
+
+
+          {/* 
 <Row wtyle = {{width:'90%'}}>    
   <Col style = {{width:'200px'}} className = 'mini-card'>
    1
@@ -122,7 +136,8 @@ function App() {
 </Row> */}
           <Slider object = {data[active]} city = {city} active = {active}/> 
 
-          {/* <Row >
+
+        {/* <Row >
 
   <Col className = 'd-flex justify-content-end align-items-center' style = {{height:'50px'}}>ICON</Col>
 
