@@ -10,7 +10,10 @@ import Slider from "./components/Slider";
 import Navbar from "./components/Navbar";
 import GuestIcon from "./assests/guest-icon.png";
 import Switch from "react-bootstrap/esm/Switch";
-
+import { FaArrowRight } from "react-icons/fa";
+import Chart from "./components/Chart";
+import { BrowserRouter as Router, Switch as S, Route } from "react-router-dom";
+//We need router to add the ability ro handle routing in react
 function App() {
   const [city, setCity] = useState("Click A Location");
   const [cityData, setCityData] = useState([
@@ -108,7 +111,11 @@ function App() {
     <>
       <div
         className="d-flex align-items-center justify-content-center"
-        style={{ height: "100vh", width: "100vw", backgroundColor: "#4FA1CA" }}
+        style={{
+          height: "100vh",
+          width: "100vw",
+          backgroundColor: "#4FA1CA",
+        }}
       >
         <div className="app-container">
           <Navbar currentData={currentData} />
@@ -147,33 +154,21 @@ function App() {
               </div>
             </div>
 
-            {/* 
-<Row wtyle = {{width:'90%'}}>    
-  <Col style = {{width:'200px'}} className = 'mini-card'>
-   1
-  </Col>
-  <Col className = 'mini-card'>
-   1
-  </Col>
-  <Col className = 'mini-card'>
-   1
-  </Col>
-  <Col className = 'mini-card'>
-   1
-  </Col>
-  <Col className = 'mini-card'>
-   1
-  </Col>
-
-</Row> */}
-            <Slider object={current} city={city} />
+            <div className="details">
+              <h5>
+                Details more <FaArrowRight style={{ marginLeft: "11px" }} />
+              </h5>
+            </div>
+            <Router>
+              <Route path="/chart" component={Chart} />
+              <Route
+                path="/slider"
+                component={() => {
+                  return <Slider object={current} city={cityName} />;
+                }}
+              />
+            </Router>
           </div>
-
-          {/* <Row >
-
-  <Col className = 'd-flex justify-content-end align-items-center' style = {{height:'50px'}}>ICON</Col>
-
-</Row> */}
         </div>
       </div>
     </>

@@ -1,71 +1,70 @@
-*,*::after,*::before{
+*,
+*::after,
+*::before {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
 }
 
-.app-container{
+.app-container {
   display: flex;
   width: 95vw;
   height: 95vh;
   background-color: rgb(243, 243, 243);
   border-radius: 25px;
 
-  .nav-container{
+  .nav-container {
     height: 100%;
     width: 22vw;
     background-color: rgb(247, 165, 176);
     border-bottom-left-radius: 25px;
     border-top-left-radius: 25px;
 
-    .logo-con{
-      div{
-        color: rgb(107, 179, 221)!important;
+    .logo-con {
+      div {
+        color: rgb(107, 179, 221) !important;
       }
     }
   }
-
-
-
 }
 
-.padding{
+.padding {
   margin-right: 7px;
 
   color: rgb(255, 255, 103);
 }
 
-.card-con{
+.card-con {
   width: 93%;
   height: 300px;
   background-color: white;
   margin: 0px;
   border-radius: 20px;
 }
-.text-con{
+.text-con {
   padding-left: 20px;
 }
 
-.forcast-con{
+.forcast-con {
   width: 78vw;
 }
-.weather-forcast{
+.weather-forcast {
   height: 30%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.slider{
-  height: 50%;
+.slider {
+  height: 45%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  .daily-slider{
+  .daily-slider {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 
-    .mini-card{
+    .mini-card {
       height: 120px;
       width: 80px;
       border-radius: 15px;
@@ -81,14 +80,14 @@
   }
 }
 
-.citys{
+.citys {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
-.icon{
+.icon {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -97,25 +96,32 @@
   height: 50px;
   border: 2px solid gray;
 
-  .icon-pic{
-    height:35px ;
+  .icon-pic {
+    height: 35px;
     border-radius: 50%;
     width: 35px;
     background-color: gray;
-    img{
+    img {
       height: 35px;
       border-radius: 50%;
     }
   }
-  .name{
+  .name {
     color: gray;
   }
-  .dropdown{
+  .dropdown {
     cursor: pointer;
   }
 }
-.active{
+.active {
   transform: translateY(-13px);
-  color: blue;
-  transition: transform .3s ease;
+  color: #4fa1ca;
+  transition: transform 0.3s ease;
+}
+
+.details {
+  cursor: pointer;
+  width: 95%;
+  text-align: right;
+  color: #4fa1ca;
 }
