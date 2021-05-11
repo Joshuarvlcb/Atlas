@@ -12,7 +12,7 @@ import GuestIcon from './assests/guest-icon.png'
 
 
 function App() {
-    const [city, setCity] = useState('Buckeye')
+    const [city, setCity] = useState('Click A Location')
     const [cityData, setCityData] = useState([
         {
             id:1,
