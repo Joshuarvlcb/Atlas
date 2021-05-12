@@ -167,7 +167,7 @@
   cursor: pointer;
 }
 
-.active {
+.activeCity {
   -webkit-transform: translateY(-13px);
           transform: translateY(-13px);
   color: #4fa1ca;
@@ -191,5 +191,25 @@
       -ms-flex-pack: end;
           justify-content: flex-end;
   color: #4fa1ca;
+}
+
+.buttonContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.buttonContainer svg {
+  color: #6bb3dd;
+  font-size: 3rem;
+  cursor: pointer;
+  margin: 10px;
 }
 /*# sourceMappingURL=style.css.map */
