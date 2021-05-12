@@ -1,5 +1,4 @@
 import { RiArrowDropDownLine } from "react-icons/ri";
-import Faker from "faker";
 import Cards from "./components/Cards.jsx";
 import Az from "./assests/az-background.jpg";
 import Italy from "./assests/italy-background.jpg";

@@ -19,7 +19,7 @@ const Slider = ({ arr, city, active ,miniData}) => {
       </h3>
       <div className="daily-slider">
         {arr.map((card, i) => {
-          return <MiniCard  key = {`weather${i}`} arr = {arr} miniData = {miniData} pic={`http://openweathermap.org/img/wn/${card.weather[0].icon}@2x.png`} className = {`${active}${i}`} page = {(active == 'today') ? 'daily' :'hour'} temp = {(active === 'daily') ? card.temp.day : card.temp} daily = {{h:card.humidity,t:card.temp.day,day:[days[i]], w:card.wind_speed,}}  text={days[i]}/>;
+          return <MiniCard   key = {`weather${i}`} arr = {arr} miniData = {miniData} pic={`http://openweathermap.org/img/wn/${card.weather[0].icon}@2x.png`} className = {`${active}${i}`} page = {(active == 'today') ? 'daily' :'hour'} temp = {(active === 'daily') ? card.temp.day : card.temp} daily = {{h:card.humidity,t:card.temp.day,day:[days[i]], w:card.wind_speed,}}  text={days[i]}/>;
         })}
       </div>
     </div>
