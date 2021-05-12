@@ -17,12 +17,21 @@ import Settings from './components/Settings'
 import HourlySlider from "./components/HourlySlider.jsx";
 //We need router to add the ability ro handle routing in react
 function App() {
-  const [city, setCity] = useState("Arizona");
+  const [cityDaily,setCityDaily] = useState(
+    {
+        city:'Buckeye',
+        country:'United States'
+    }
+    )
+
+
+  const [city, setCity] = useState("Buckeye");
+  const [temp,setTemp] = useState({temp:105,humidity:70,wind:20})
   const [activePage, setActivePage] = useState('today')
   const [cityData, setCityData] = useState([
     {
       id: 1,
-      name: "Arizona",
+      name: "Buckeye",
       active: true,
       src: Az,
     },
@@ -34,17 +43,25 @@ function App() {
     },
     {
       id: 3,
-      name: "Italy",
+      name: "Venice",
       active: false,
       src: Italy,
     },
     {
       id: 4,
-      name: "Spain",
+      name: "Madrid",
       active: false,
       src: Spain,
     },
   ]);
+
+
+
+  const miniCardData = (temp,day,humidity,wind)=> {
+    let data = {temp:temp,day:day,humidity:humidity,wind:wind}
+    console.log(data)
+    setTemp({temp:data.temp,humidity:humidity,wind:wind})
+  }
 
   const data = {
     today: [weather['hourly'][4], weather['hourly'][11], weather['hourly'][16], weather['hourly'][22]],
@@ -71,7 +88,28 @@ function App() {
       setCity(e.target.alt);
       target = e.target.alt;
     }
+    let country
 
+    switch(target){
+      case 'Paris':
+        country = 'France'
+        break
+      case 'Buckeye':
+        country = 'United States'
+        break
+      case  'Venice':
+        country = 'Italy'
+        break
+      case  'Madrid':
+        country = 'Spain'
+        break
+
+    }
+    console.log(country)
+    setCityDaily({
+      city:target,
+      country:country
+    })
     setCityData(
       cityData.map((obj) => {
         if (obj.name == target) {
@@ -95,7 +133,7 @@ function App() {
         style={{ height: "100vh", width: "100vw", backgroundColor: "#4FA1CA" }}
       >
         <div className="app-container">
-          <Navbar setActive  = {(val) => {setActivePage(val)}} active = {activePage}/>
+          <Navbar cityDaily = {cityDaily} temp = {temp} setActive  = {(val) => {setActivePage(val)}}/>
           {/* weather forecast */}
 
         {(activePage !== "settings") ? (<div className="forcast-con">
@@ -141,8 +179,8 @@ function App() {
               <Route
                 path="/slider"
                 component={() => {
-                  return (activePage !== "hourly") ? (<Slider arr={data[activePage]} city={city} active = {activePage}/>)
-                   : (<HourlySlider arr = {data['hourly']} city = {city} active = {activePage}/>);
+                  return (activePage !== "hourly") ? (<Slider miniData = {miniCardData} arr={data[activePage]} city={city} active = {activePage}/>)
+                   : (<HourlySlider miniData = {miniCardData} arr = {data['hourly']} city = {city} active = {activePage}/>);
                 }}
               />
             </Router> 
