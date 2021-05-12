@@ -9,30 +9,27 @@ import { BiCalendarWeek } from "react-icons/bi";
 import { FiSettings } from "react-icons/fi";
 import Logo from "../assests/weather-logo.png";
 
-const Navbar = ({ setActive,temp,cityDaily }) => {
+const Navbar = ({ setActive, temp, cityDaily }) => {
   return (
     <div className="nav-container" style={{ margin: "0" }}>
       <Header logo={Logo} />
 
       <Nav
         className="d-flex flex-column justify-content-between"
-        style={{ paddingLeft: "25px", height: "205px" }}
+        style={{ paddingLeft: "25px", height: "30%" }}
       >
         <NavLinks
-          active = {(active === 'today')}
           name="Today"
           logo={
             <BiHome
               color="white"
-              style={{ paddingRight: "10px", height: "33px", width: "33px"}}
+              style={{ paddingRight: "10px", height: "33px", width: "33px" }}
             />
           }
-        onclick = {() => setActive('today')}
-        >
-        </NavLinks>
+          onclick={() => setActive("today")}
+        ></NavLinks>
 
         <NavLinks
-          active = {(active === 'hourly')}
           name="Hourly"
           logo={
             <Ri24HoursLine
@@ -40,10 +37,9 @@ const Navbar = ({ setActive,temp,cityDaily }) => {
               style={{ paddingRight: "10px", height: "33px", width: "33px" }}
             />
           }
-          onclick = {() => setActive('hourly')}
+          onclick={() => setActive("hourly")}
         />
         <NavLinks
-          active = {(active === 'daily')}
           name="Daily"
           logo={
             <BiCalendarWeek
@@ -51,7 +47,7 @@ const Navbar = ({ setActive,temp,cityDaily }) => {
               style={{ paddingRight: "10px", height: "33px", width: "33px" }}
             />
           }
-          onclick = {() => setActive('daily')}
+          onclick={() => setActive("daily")}
         />
         <NavLinks
           name="Settings"
@@ -61,10 +57,10 @@ const Navbar = ({ setActive,temp,cityDaily }) => {
               style={{ paddingRight: "10px", height: "33px", width: "33px" }}
             />
           }
-          onclick = {() => setActive('settings')}
+          onclick={() => setActive("settings")}
         />
       </Nav>
-      <DailyCard cityDaily = {cityDaily} temp = {temp}/>
+      <DailyCard cityDaily={cityDaily} temp={temp} />
     </div>
   );
 };
