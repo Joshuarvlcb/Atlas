@@ -34,7 +34,7 @@ const HourlySlider = ({ arr, city, active, miniData }) => {
       </h3>
       <div className="daily-slider">
           {slides[currSlide].map( (card, i) => {
-            return <MiniCard pic={Sun} temp = {card.temp} text={`${(currSlide) * 6 + i + 1}:00`} key = {`weather${i}`} arr =  {arr}/>
+            return <MiniCard pic={`http://openweathermap.org/img/wn/${card.weather[0].icon}@2x.png`}  temp = {card.temp} arr = {arr} miniData = {miniData} page = {active} text={`${(currSlide) * 6 + i + 1}:00`} key = {`c${i}]`}/>
           })}
       </div>
       <div className="buttonContainer">

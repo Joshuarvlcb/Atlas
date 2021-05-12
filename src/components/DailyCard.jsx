@@ -18,7 +18,7 @@ const DailyCard = ({ temp, cityDaily }) => {
                 className="d-flex justify-content-center"
                 style={{ paddingTop: "5px" }}
               >
-                <img src={Sun} height="70px" alt="" />
+                <img src={temp.icon} height="70px" alt="" />
               </div>
             </Col>
             {/* <Col className = 'd-flex justify-content-starta flex-column text-con align-items-center ' style = {{paddingTop:'10px',paddingLeft:'0px'}} >
