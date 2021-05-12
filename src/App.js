@@ -24,9 +24,8 @@ function App() {
     }
     )
 
-
   const [city, setCity] = useState("Buckeye");
-  const [temp,setTemp] = useState({temp:105,humidity:70,wind:20})
+  const [temp,setTemp] = useState({temp:105,humidity:70,wind:20,icon:'http://openweathermap.org/img/wn/01d@2x.png'})
   const [activePage, setActivePage] = useState('today')
   const [cityData, setCityData] = useState([
     {
@@ -57,22 +56,34 @@ function App() {
 
 
 
-  const miniCardData = (temp,day,humidity,wind)=> {
-    let data = {temp:temp,day:day,humidity:humidity,wind:wind}
+  const miniCardData = (temp,day,humidity,wind,icon)=> {
+    let data = {temp:temp,day:day,humidity:humidity,wind:wind,icon:icon}
     console.log(data)
-    setTemp({temp:data.temp,humidity:humidity,wind:wind})
+    setTemp({temp:data.temp,humidity:humidity,wind:wind,icon:icon})
   }
 
   const data = {
-    today: [weather['hourly'][4], weather['hourly'][11], weather['hourly'][16], weather['hourly'][22]],
+    today: [weather['hourly'][11], weather['hourly'][16], weather['hourly'][22],weather['hourly'][4]],
     hourly: [],
     grabHourly(){
       for(let i = 0; i < 48; i++){
         this.hourly.push(weather['hourly'][i])
       }
-      // console.table(this.hourly)
-      // console.table(this.today)
-      // console.table(this.daily)
+    },
+    arr:[],
+    data:['01d','02d','03d','01n'],
+    getDaily(){
+          this.data.forEach(curr => {
+            for(let i in weather.hourly){
+              if(weather.hourly[i].weather[0].icon === curr){
+                this.arr.push(weather.hourly[i]);
+                break
+            }
+          
+          }
+        })
+         console.log(this.arr)
+        
     },
     daily: weather['daily'].slice(0, 7),
   }
@@ -128,6 +139,7 @@ function App() {
   return (
     <>
       {data.grabHourly()}
+      {data.getDaily()}
       <div
         className="d-flex align-items-center justify-content-center"
         style={{ height: "100vh", width: "100vw", backgroundColor: "#4FA1CA" }}

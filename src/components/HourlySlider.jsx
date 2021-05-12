@@ -26,7 +26,7 @@ const HourlySlider = ({ arr, city, active, miniData }) => {
               {slides.map( (slide, i) => {
                 return (<Carousel.Item className = "d-flex justify-content-evenly" key = {`s${i}`} style={{backgroundColor: "rgb(243, 243, 243)"}}>
                     {slide.map( (card, k) => {
-                        return <MiniCard pic={Sun} temp = {card.temp} text={`${i}${k}`} key = {`s${i}c${k}`}/>;
+                        return <MiniCard pic={`http://openweathermap.org/img/wn/${card.weather[0].icon}@2x.png`}  temp = {card.temp} arr = {arr} miniData = {miniData} text={`${i}${k}`} key = {`s${i}c${k}`}/>;
                     })}
                 </Carousel.Item>)
               })}
