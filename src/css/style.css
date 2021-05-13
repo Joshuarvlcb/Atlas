@@ -116,6 +116,16 @@
           justify-content: flex-start;
   border: 2px solid gray;
   color: gray;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  position: relative;
+  bottom: 0;
+}
+
+.slider .daily-slider .mini-card:hover {
+  -webkit-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.445);
+          box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.445);
+  bottom: 10px;
 }
 
 .citys {

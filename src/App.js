@@ -26,6 +26,7 @@ function App() {
   const [city, setCity] = useState("Buckeye");
   const [temp,setTemp] = useState({temp:105,humidity:70,wind:20,icon:'http://openweathermap.org/img/wn/01d@2x.png'})
   const [activePage, setActivePage] = useState('today')
+  const [currSlide, setCurrSlide] = useState(0)
   const [cityData, setCityData] = useState([
     {
       id: 1,
@@ -191,7 +192,7 @@ function App() {
                 path="/slider"
                 component={() => {
                   return (activePage !== "hourly") ? (<Slider miniData = {miniCardData} arr={data[activePage]} city={city} active = {activePage}/>)
-                   : (<HourlySlider miniData = {miniCardData} arr = {data['hourly']} city = {city} active = {activePage}/>);
+                   : (<HourlySlider miniData = {miniCardData} arr = {data['hourly']} city = {city} active = {activePage} currSlide = {currSlide} setCurrSlide = {(val) => {setCurrSlide(val)}}/>);
                 }}
               />
             </Router> 

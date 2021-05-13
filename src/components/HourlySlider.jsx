@@ -5,9 +5,8 @@ import { useState } from 'react'
 import {ImArrowRight2, ImArrowLeft2} from 'react-icons/im'
 
 
-const HourlySlider = ({ arr, city, active, miniData }) => {
+const HourlySlider = ({ arr, city, active, miniData, currSlide, setCurrSlide }) => {
 
-  const [currSlide, setCurrSlide] = useState(0)
 
   const slides = [arr.slice(0, 6), arr.slice(6, 12), arr.slice(12, 18), arr.slice(18, 24), arr.slice(24, 30), arr.slice(30, 36), arr.slice(36, 42), arr.slice(42)]
 
