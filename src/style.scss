@@ -123,7 +123,7 @@
     cursor: pointer;
   }
 }
-.active {
+.activeCity {
   transform: translateY(-13px);
   color: #4fa1ca;
   transition: transform 0.3s ease;
@@ -137,4 +137,18 @@
  align-items: center;
  justify-content: flex-end;
   color: #4fa1ca;
+}
+
+//hourly slider
+.buttonContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  svg{
+    color: rgb(107, 179, 221);
+    font-size: 3rem;
+    cursor: pointer;
+    margin: 10px;
+  }
 }

@@ -4,7 +4,7 @@ const Cards = ({ activeF, data }) => {
       {data.map((curr, i) => {
         return (
           <div
-            className={curr.active ? "active" : ""}
+            className={curr.active ? "activeCity" : ""}
             onClick={activeF}
             style={{ padding: "0px", cursor: "pointer",transition:'all ease .3s' }}
             key = {`card${i}`}
