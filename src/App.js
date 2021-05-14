@@ -8,9 +8,8 @@ import React, { useState } from "react";
 import Slider from "./components/Slider";
 import Navbar from "./components/Navbar";
 import GuestIcon from "./assests/guest-icon.png";
-import { FaArrowRight } from "react-icons/fa";
 import Chart from "./components/Chart";
-import { BrowserRouter as Router, Switch as S, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch as S, Route,Link,Redirect } from "react-router-dom";
 import weather from './assests/weather.json'
 import Settings from './components/Settings'
 import HourlySlider from "./components/HourlySlider.jsx";
@@ -169,8 +168,6 @@ function App() {
                 style={{
                   paddingBottom: "20px",
                   paddingLeft: "20px",
-                  width: "269px",
-                  alignItems: "center",
                 }}
               >
                 Weather Forecast
@@ -180,21 +177,25 @@ function App() {
                 <Cards activeF={activeCity} data={cityData} />
               </div>
             </div>
-            <div className="details">
-              <h5>
-                Details more <FaArrowRight style={{ marginLeft: "11px" }} />
-              </h5>
-            </div>
+
+          
+
+            <Router>
+         
             
-             <Router>
               <Route path="/chart" component={Chart} />
+            
               <Route
                 path="/slider"
                 component={() => {
                   return (activePage !== "hourly") ? (<Slider miniData = {miniCardData} arr={data[activePage]} city={city} active = {activePage}/>)
                    : (<HourlySlider miniData = {miniCardData} arr = {data['hourly']} city = {city} active = {activePage} currSlide = {currSlide} setCurrSlide = {(val) => {setCurrSlide(val)}}/>);
                 }}
-              />
+                />
+                      
+
+                <Redirect to = '/slider'></Redirect>
+
             </Router> 
              
             </div>) : <Settings/>}

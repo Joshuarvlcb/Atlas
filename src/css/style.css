@@ -73,7 +73,7 @@
 }
 
 .slider {
-  height: 40%;
+  height: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -81,9 +81,9 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .slider .daily-slider {
@@ -99,7 +99,7 @@
   height: 120px;
   width: 80px;
   border-radius: 15px;
-  background-color: #ececec;
+  background-color: #f0f0f0;
   padding: 0px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -108,14 +108,15 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  font-weight: bold;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  border: 2px solid gray;
-  color: gray;
+  border: 2px solid black;
+  color: #222222;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   position: relative;
@@ -188,7 +189,6 @@
 }
 
 .details {
-  cursor: pointer;
   width: 95%;
   height: 10%;
   display: -webkit-box;
@@ -200,7 +200,15 @@
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+}
+
+.details h5 {
+  cursor: pointer;
+}
+
+.details h5 a {
   color: #4fa1ca;
+  text-decoration: none;
 }
 
 .buttonContainer {
