@@ -1,7 +1,6 @@
 import React from 'react'
 import MiniCard from './MiniCard'
 import Sun from '../assests/sunny.png'
-import Carousel from 'react-bootstrap/Carousel'
 import { useState } from 'react'
 import {ImArrowRight2, ImArrowLeft2} from 'react-icons/im'
 
