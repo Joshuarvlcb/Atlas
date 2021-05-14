@@ -20,7 +20,7 @@ const MiniCard = ({pic,page, temp, text,miniData,arr,daily}) => {
       
     </div>
     <div className="d-flex flex-column align-items-center" style = {{position:'absolute',top:'50%'}}>
-    <div className="deg">{temp}</div>
+    <div className="deg">{temp.toFixed(1)}°</div>
     <div className="date">{text}</div>
 
     </div>

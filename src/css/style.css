@@ -97,7 +97,7 @@
 
 .slider .daily-slider .mini-card {
   height: 120px;
-  width: 80px;
+  width: 10%;
   border-radius: 15px;
   background-color: #ececec;
   padding: 0px;
@@ -221,5 +221,30 @@
   font-size: 3rem;
   cursor: pointer;
   margin: 10px;
+}
+
+@media only screen and (max-width: 900px) {
+  .weather-forcast {
+    display: none;
+  }
+  .nav-container {
+    width: 100vw !important;
+    display: none;
+  }
+  .daily-card-con {
+    width: 95vw;
+  }
+  .details {
+    width: 93vw;
+  }
+  .slider {
+    width: 95vw;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .daily-card-con {
+    display: none;
+  }
 }
 /*# sourceMappingURL=style.css.map */

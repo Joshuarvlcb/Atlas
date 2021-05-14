@@ -15,6 +15,7 @@ import { BrowserRouter as Router, Switch as S, Route } from "react-router-dom";
 import weather from './assests/weather.json'
 import Settings from './components/Settings'
 import HourlySlider from "./components/HourlySlider.jsx";
+import DailyCard from './components/DailyCard'
 //We need router to add the ability ro handle routing in react
 function App() {
   const [cityDaily,setCityDaily] = useState(
@@ -163,6 +164,10 @@ function App() {
                   <RiArrowDropDownLine style={{ fontSize: "30px" }} />
                 </div>
               </div>
+            </div>
+
+            <div className="daily-card-con" >
+              <DailyCard cityDaily={cityDaily} temp={temp} />
             </div>
 
             <div className="weather-forcast" style={{ height: "30%" }}>
