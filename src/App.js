@@ -13,6 +13,7 @@ import { BrowserRouter as Router, Switch as S, Route,Link,Redirect } from "react
 import weather from './assests/weather.json'
 import Settings from './components/Settings'
 import HourlySlider from "./components/HourlySlider.jsx";
+import DailyCard from './components/DailyCard'
 //We need router to add the ability ro handle routing in react
 function App() {
   const [cityDaily,setCityDaily] = useState(
@@ -23,7 +24,6 @@ function App() {
     )
 
   const [city, setCity] = useState("Buckeye");
-  const [temp,setTemp] = useState({temp:105,humidity:70,wind:20,icon:'http://openweathermap.org/img/wn/01d@2x.png'})
   const [activePage, setActivePage] = useState('today')
   const [currSlide, setCurrSlide] = useState(0)
   const [cityData, setCityData] = useState([
@@ -52,17 +52,17 @@ function App() {
       src: Spain,
     },
   ]);
-
-
-
+  
+  
+  
   const miniCardData = (temp,day,humidity,wind,icon)=> {
     let data = {temp:temp,day:day,humidity:humidity,wind:wind,icon:icon}
     console.log(data)
     setTemp({temp:data.temp,humidity:humidity,wind:wind,icon:icon})
   }
-
+  
   const data = {
-    today: [weather['hourly'][11], weather['hourly'][16], weather['hourly'][22],weather['hourly'][4]],
+    today: [weather['hourly'][4], weather['hourly'][11], weather['hourly'][16], weather['hourly'][23]],
     hourly: [],
     grabHourly(){
       for(let i = 0; i < 48; i++){
@@ -72,23 +72,24 @@ function App() {
     arr:[],
     data:['01d','02d','03d','01n'],
     getDaily(){
-          this.data.forEach(curr => {
-            for(let i in weather.hourly){
-              if(weather.hourly[i].weather[0].icon === curr){
-                this.arr.push(weather.hourly[i]);
-                break
-            }
-          
+      this.data.forEach(curr => {
+        for(let i in weather.hourly){
+          if(weather.hourly[i].weather[0].icon === curr){
+            this.arr.push(weather.hourly[i]);
+            break
           }
-        })
-         console.log(this.arr)
-        
+          
+        }
+      })
+      console.log(this.arr)
+      
     },
     daily: weather['daily'].slice(0, 7),
   }
-
-
-
+  
+  const [temp,setTemp] = useState({temp:weather['hourly'][4]['temp'],humidity:weather['hourly'][4]['humidity'],wind:weather['hourly'][4]['wind_speed'],icon:'http://openweathermap.org/img/wn/01n@2x.png'})
+  
+  
   const cityName = (e) => {
     let target;
     if (e.target.textContent) {
@@ -161,6 +162,10 @@ function App() {
                   <RiArrowDropDownLine style={{ fontSize: "30px" }} />
                 </div>
               </div>
+            </div>
+
+            <div className="daily-card-con" >
+              <DailyCard cityDaily={cityDaily} temp={temp} />
             </div>
 
             <div className="weather-forcast" style={{ height: "30%" }}>

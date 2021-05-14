@@ -6,12 +6,12 @@ const Cards = ({ activeF, data }) => {
           <div
             className={curr.active ? "activeCity" : ""}
             onClick={activeF}
-            style={{ padding: "0px", cursor: "pointer",transition:'all ease .3s' }}
+            style={{ padding: "0px", cursor: "pointer",transition:'all ease .3s', width: '20%' }}
             key = {`card${i}`}
           >
             <img
               src={curr.src}
-              height="120px"
+              width="100%"
               alt={curr.name}
               style={{ borderRadius: "15px", marginBottom: "5px" }}
             />

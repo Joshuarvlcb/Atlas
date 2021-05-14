@@ -5,10 +5,12 @@ import Sun from "../assests/sunny.png";
 import ProgressBar from "react-bootstrap/ProgressBar";
 const DailyCard = ({ temp, cityDaily }) => {
   return (
-    <>
+    <div id = "dailyCard"
+      style = {{ height: '55%'}}
+    >
       <Container
         className="d-flex justify-content-center align-items-center"
-        style={{ height: "55%" }}
+        style={{ height: "100%" }}
       >
         <div as="div" className="card-con">
           <Row>
@@ -78,7 +80,7 @@ const DailyCard = ({ temp, cityDaily }) => {
           </Row>
         </div>
       </Container>
-    </>
+    </div>
   );
 };
 
