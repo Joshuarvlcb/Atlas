@@ -16,8 +16,22 @@ import weather from './assests/weather.json'
 import Settings from './components/Settings'
 import HourlySlider from "./components/HourlySlider.jsx";
 import DailyCard from './components/DailyCard'
+import { useEffect } from 'react'
 //We need router to add the ability ro handle routing in react
 function App() {
+
+  const [lat, setLat] = useState('33.535752679481384')
+  const [lon, setLon] = useState('-112.29286076010044')
+  const [newData, setNewData] = useState(null)
+
+  // useEffect(() => {
+  //   fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={part}&appid=004d873acf1ccd606483135a214f13d1`)
+  //   .then(response => {
+  //     setNewData(response)
+  //     return response;
+  //   })
+  // }, [])
+
   const [cityDaily,setCityDaily] = useState(
     {
         city:'Buckeye',
