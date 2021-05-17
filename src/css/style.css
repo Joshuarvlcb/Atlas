@@ -284,6 +284,10 @@
   .daily-card-con {
     width: 95vw;
   }
+  #dailyCard {
+    margin-bottom: 25vh;
+    margin-top: 10vh;
+  }
   .details {
     width: 93vw;
   }
