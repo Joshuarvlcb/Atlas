@@ -183,7 +183,7 @@ function App() {
 
         {(activePage !== "settings") ? (<div className="forcast-con">
             <div
-              className="d-flex justify-content-end align-items-center"
+              className="justify-content-end align-items-center forehead"
               style={{ width: "95%", height: "20%" }}
             >
               <div className="icon">
