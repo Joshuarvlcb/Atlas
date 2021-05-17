@@ -183,20 +183,26 @@
 }
 
 @media only screen and (max-width: 900px){
+  .bigContainer{
+    background-color: #f3f3f3!important;
+  }
   .weather-forcast{
     display: none;
   }
   .nav-container{
-    width: 95vw!important;
-    height: 95vh!important;
-    border-radius: 25px;
+    width: 100vw!important;
+    height: 100vh!important;
+    border-radius: 0!important;
     position: absolute;
     z-index: 100;
+    left: 0;
+    top: 0;
     .card-con{
       display: none;
     }
     .navCities{
       display: grid;
+      justify-items: center;
       grid-template-columns: 1fr 1fr;
       
       div{
@@ -216,6 +222,31 @@
   .slider{
     width: 95vw;
     height: 30%;
+    
+    .daily-slider{
+      flex-direction: column;
+      
+      .mini-card{
+        width: 90vw!important;
+        margin: auto;
+        height: 5rem;
+        flex-direction: row!important;
+        justify-content: space-between;
+
+        div img{
+          position: relative!important;
+        }
+
+        .text-container{ 
+          width: 100%;
+          align-items: center;
+          display: flex;
+          flex-direction: row!important;
+          justify-content: space-evenly;  
+          position: relative;
+        }
+      }
+    }
   }
   .icon{
     display: none;
