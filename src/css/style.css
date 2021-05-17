@@ -7,6 +7,10 @@
           box-sizing: border-box;
 }
 
+.bigContainer {
+  height: 100vh;
+}
+
 .app-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -15,6 +19,15 @@
   height: 95vh;
   background-color: #f3f3f3;
   border-radius: 25px;
+}
+
+.app-container svg.menu {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 2rem;
+  top: 1.4rem;
+  z-index: 101;
 }
 
 .app-container .nav-container {
@@ -236,8 +249,24 @@
     display: none;
   }
   .nav-container {
-    width: 100vw !important;
+    width: 95vw !important;
+    height: 95vh !important;
+    border-radius: 25px;
+    position: absolute;
+    z-index: 100;
+  }
+  .nav-container .card-con {
     display: none;
+  }
+  .nav-container .navCities {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
+  .nav-container .navCities div {
+    margin-top: 20px;
+    width: 90% !important;
   }
   .daily-card-con {
     width: 95vw;
@@ -247,6 +276,15 @@
   }
   .slider {
     width: 95vw;
+    height: 30%;
+  }
+  .icon {
+    display: none;
+  }
+  #dailyCard div {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
 }
 

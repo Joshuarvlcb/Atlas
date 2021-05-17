@@ -8,8 +8,9 @@ import { Ri24HoursLine } from "react-icons/ri";
 import { BiCalendarWeek } from "react-icons/bi";
 import { FiSettings } from "react-icons/fi";
 import Logo from "../assests/weather-logo.png";
+import Cards from './Cards'
 
-const Navbar = ({ setActive, temp, cityDaily }) => {
+const Navbar = ({ setActive, temp, cityDaily, activeNav, activeF, data, showNav, toggleNav }) => {
   return (
     <div className="nav-container" style={{ margin: "0" }}>
       <Header logo={Logo} />
@@ -26,7 +27,10 @@ const Navbar = ({ setActive, temp, cityDaily }) => {
               style={{ paddingRight: "10px", height: "33px", width: "33px" }}
             />
           }
-          onclick={() => setActive("today")}
+          onclick={() => {
+            setActive("today")
+            if(!showNav) toggleNav()
+          }}
         ></NavLinks>
 
         <NavLinks
@@ -37,7 +41,10 @@ const Navbar = ({ setActive, temp, cityDaily }) => {
               style={{ paddingRight: "10px", height: "33px", width: "33px" }}
             />
           }
-          onclick={() => setActive("hourly")}
+          onclick={() => {
+            setActive("hourly")
+            if(!showNav) toggleNav()
+          }}
         />
         <NavLinks
           name="Daily"
@@ -47,7 +54,10 @@ const Navbar = ({ setActive, temp, cityDaily }) => {
               style={{ paddingRight: "10px", height: "33px", width: "33px" }}
             />
           }
-          onclick={() => setActive("daily")}
+          onclick={() => {
+            setActive("daily")
+            if(!showNav) toggleNav()
+          }}
         />
         <NavLinks
           name="Settings"
@@ -57,10 +67,20 @@ const Navbar = ({ setActive, temp, cityDaily }) => {
               style={{ paddingRight: "10px", height: "33px", width: "33px" }}
             />
           }
-          onclick={() => setActive("settings")}
+          onclick={() => {
+            setActive("settings")
+            if(!showNav) toggleNav()
+          }}
         />
       </Nav>
-      <DailyCard cityDaily={cityDaily} temp={temp} />
+      {showNav && 
+        <DailyCard cityDaily={cityDaily} temp={temp} />
+      }
+      
+      {activeNav && 
+      <div className = "navCities">
+        <Cards activeF={activeF} data={data}/>
+      </div>}
     </div>
   );
 };
