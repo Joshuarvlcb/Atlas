@@ -10,6 +10,10 @@
   height: 100vh;
 }
 
+.forehead{
+  display: flex;
+}
+
 .app-container {
   display: flex;
   width: 95vw;
@@ -188,6 +192,9 @@
   }
   .weather-forcast{
     display: none;
+  }
+  .forehead{
+    display: none!important;
   }
   .nav-container{
     width: 100vw!important;

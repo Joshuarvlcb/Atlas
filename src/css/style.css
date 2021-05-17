@@ -11,6 +11,12 @@
   height: 100vh;
 }
 
+.forehead {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .app-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -248,6 +254,9 @@
   }
   .weather-forcast {
     display: none;
+  }
+  .forehead {
+    display: none !important;
   }
   .nav-container {
     width: 100vw !important;
