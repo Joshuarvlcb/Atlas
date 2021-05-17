@@ -11,11 +11,11 @@ const Chart = ({activePage, chartToggle,chart}) => {
       >
         <div
           className=" d-flex justify-content-between align-items-center"
-          style={{ width: "100%" }}
+          style={{ width: "100%"  ,             paddingBottom: "20px"
+        }}
         >
           <h3
             style={{
-              paddingBottom: "20px",
               paddingLeft: "20px",
             }}
           >
@@ -25,7 +25,7 @@ const Chart = ({activePage, chartToggle,chart}) => {
           <Detail activePage = {activePage} chartToggle = {chartToggle} chart={chart}/>
         </div>
 
-        <Line
+        {/* <Line
           style={{ padding: "0 25px" }}
           height="70%"
           data={{
@@ -51,7 +51,7 @@ const Chart = ({activePage, chartToggle,chart}) => {
               ],
             },
           }}
-        />
+        /> */}
       </div>
     </>
   );
