@@ -73,7 +73,8 @@ function App() {
   ]);
   
   
-  
+  const [chart, setChart] = useState(true);
+
   const miniCardData = (temp,day,humidity,wind,icon)=> {
     let data = {temp:temp,day:day,humidity:humidity,wind:wind,icon:icon}
     console.log(data)
@@ -207,7 +208,6 @@ function App() {
             <Router>
          
             
-              <Route path="/chart" component={Chart} />
             
               <Route
                 path="/slider"
@@ -220,6 +220,8 @@ function App() {
 
                 <Redirect to = '/slider'></Redirect>
 
+                <Route path="/chart" component={() => <Chart activePage = {activePage} />} />
+
             </Router> 
              
             </div>) : <Settings/>}
@@ -229,15 +231,6 @@ function App() {
           </div>
 
 
-          
-
-
-
-        {/* <Row >
-
-  <Col className = 'd-flex justify-content-end align-items-center' style = {{height:'50px'}}>ICON</Col>
-
-</Row> */}
         </div>
     </>
   );
