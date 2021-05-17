@@ -14,6 +14,7 @@ import weather from './assests/weather.json'
 import Settings from './components/Settings'
 import HourlySlider from "./components/HourlySlider.jsx";
 import DailyCard from './components/DailyCard'
+import {GiHamburgerMenu} from "react-icons/gi"
 // import axios from 'axios'
 //We need router to add the ability ro handle routing in react
 function App() {
@@ -24,6 +25,8 @@ function App() {
   const [newData, setNewData] = useState(weather)
   const [lat, setLat] = useState(33.53596730937949)
   const [lon, setLon] = useState(-112.2928500313519)
+  const [showNav, setShowNav] = useState( (window.innerWidth <= 900) ? false : true)
+  const [activeNav, setActiveNav] = useState(false)
 
   // useEffect( () => {
   //   axios(`http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=004d873acf1ccd606483135a214f13d1`)
@@ -155,17 +158,27 @@ function App() {
     console.log(newData);
     cityName(e);
   };
+  
+  const checkSize = () => {
+    setShowNav( (window.innerWidth <= 900) ? false : true)
+    if(showNav) setActiveNav(false)
+  }
 
   return (
     <>
+      {window.addEventListener('resize', checkSize)}
       {data.grabHourly()}
       {data.getDaily()}
       <div
-        className="d-flex align-items-center justify-content-center"
+        className="d-flex align-items-center justify-content-center bigContainer"
         style={{ height: "100vh", width: "100vw", backgroundColor: "#4FA1CA" }}
       >
         <div className="app-container">
-          <Navbar cityDaily = {cityDaily} temp = {temp} setActive  = {(val) => {setActivePage(val)}}/>
+          {showNav ? <Navbar toggleNav = {() => {setActiveNav(!activeNav)}} showNav = {showNav} data = {cityData} activeF = {activeCity} cityDaily = {cityDaily} temp = {temp} setActive  = {(val) => {setActivePage(val)}} activeNav = {activeNav}/> : 
+            <>
+              <GiHamburgerMenu className = "menu" onClick = {() => {setActiveNav(!activeNav)}}/>
+              {activeNav && <Navbar toggleNav = {() => {setActiveNav(!activeNav)}} showNav = {showNav} data = {cityData} activeF = {activeCity} cityDaily = {cityDaily} temp = {temp} setActive  = {(val) => {setActivePage(val)}} activeNav = {activeNav}/>}
+            </>}
           {/* weather forecast */}
 
         {(activePage !== "settings") ? (<div className="forcast-con">

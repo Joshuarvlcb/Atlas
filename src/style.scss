@@ -6,12 +6,25 @@
   box-sizing: border-box;
 }
 
+.bigContainer{
+  height: 100vh;
+}
+
 .app-container {
   display: flex;
   width: 95vw;
   height: 95vh;
   background-color: rgb(243, 243, 243);
   border-radius: 25px;
+
+  svg.menu{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 2rem;
+    top: 1.4rem;
+    z-index: 101;
+  }
 
   .nav-container {
     height: 100%;
@@ -174,8 +187,24 @@
     display: none;
   }
   .nav-container{
-    width: 100vw!important;
-    display: none;
+    width: 95vw!important;
+    height: 95vh!important;
+    border-radius: 25px;
+    position: absolute;
+    z-index: 100;
+    .card-con{
+      display: none;
+    }
+    .navCities{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      
+      div{
+        margin-top: 20px;
+        width: 90%!important;
+      }
+    }
+
   }
   .daily-card-con{
     width: 95vw;
@@ -186,6 +215,14 @@
 
   .slider{
     width: 95vw;
+    height: 30%;
+  }
+  .icon{
+    display: none;
+  }
+
+  #dailyCard div{
+    align-items: flex-start;
   }
 }
 @media only screen and (min-width: 900px){
