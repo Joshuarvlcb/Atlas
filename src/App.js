@@ -76,7 +76,8 @@ function App() {
   ]);
   
   
-  
+  const [chart, setChart] = useState(true);
+
   const miniCardData = (temp,day,humidity,wind,icon)=> {
     let data = {temp:temp,day:day,humidity:humidity,wind:wind,icon:icon}
     console.log(data)
@@ -220,18 +221,19 @@ function App() {
             <Router>
          
             
-              <Route path="/chart" component={Chart} />
             
               <Route
                 path="/slider"
                 component={() => {
-                  return (activePage !== "hourly") ? (<Slider miniData = {miniCardData} arr={data[activePage]} city={city} active = {activePage}/>)
+                  return (activePage !== "hourly") ? (<Slider chart = {chart} chartToggle = {() => setChart(!chart)} miniData = {miniCardData} arr={data[activePage]} city={city} active = {activePage}/>)
                    : (<HourlySlider miniData = {miniCardData} arr = {data['hourly']} city = {city} active = {activePage} currSlide = {currSlide} setCurrSlide = {(val) => {setCurrSlide(val)}}/>);
                 }}
                 />
                       
 
                 <Redirect to = '/slider'></Redirect>
+
+                <Route path="/chart" component={() => <Chart activePage = {activePage} chart = {chart} chartToggle = {() => setChart(!chart)} />} />
 
             </Router> 
              
@@ -242,15 +244,6 @@ function App() {
           </div>
 
 
-          
-
-
-
-        {/* <Row >
-
-  <Col className = 'd-flex justify-content-end align-items-center' style = {{height:'50px'}}>ICON</Col>
-
-</Row> */}
         </div>
     </>
   );

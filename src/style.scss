@@ -91,21 +91,21 @@
       height: 120px;
       width: 10%;
       border-radius: 15px;
-      background-color: rgb(240, 240, 240);
+      background-color: rgb(255, 255, 255);
       padding: 0px;
       display: flex;
       flex-direction: column;
       font-weight: bold;
       align-items: center;
       justify-content: flex-start;
-      border: 2px solid rgb(0, 0, 0);
+      border: 2px solid rgb(247, 165, 176);
       color: rgb(34, 34, 34);
       transition: all 0.5s ease;
       position: relative;
       bottom: 0;
 
       &:hover{
-        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.445);
+        // box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.445);
         bottom: 10px;
       }
     }

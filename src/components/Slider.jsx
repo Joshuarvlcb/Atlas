@@ -2,7 +2,7 @@ import React from "react";
 import MiniCard from "./MiniCard";
 import Detail from './Detail';
 
-const Slider = ({ arr, city, active ,miniData}) => {
+const Slider = ({ arr, city, active ,miniData,chartToggle,chart}) => {
 
   const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
   const times = ['Morning', 'Noon', "Evening", 'Night']
@@ -16,11 +16,11 @@ const Slider = ({ arr, city, active ,miniData}) => {
           paddingLeft: "20px",
           width: "269px",
           alignItems: "center",
-        }}
+       }}
       >
         {city}
       </h3>
-      <Detail activePage = {active} />
+      <Detail activePage = {active} chartToggle = {chartToggle} chart = {chart} />
       </div>
       <div className="daily-slider">
         {arr.map((card, i) => {
