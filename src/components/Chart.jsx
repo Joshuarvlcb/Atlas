@@ -2,7 +2,7 @@ import React from "react";
 import { Line } from "react-chartjs-2";
 import Detail from "./Detail";
 
-const Chart = ({activePage}) => {
+const Chart = ({activePage, chartToggle,chart}) => {
   return (
     <>
       <div
@@ -21,8 +21,8 @@ const Chart = ({activePage}) => {
           >
             Chart
           </h3>
-
-          <Detail activePage = {activePage} />
+ 
+          <Detail activePage = {activePage} chartToggle = {chartToggle} chart={chart}/>
         </div>
 
         <Line

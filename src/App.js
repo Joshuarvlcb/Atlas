@@ -225,7 +225,7 @@ function App() {
               <Route
                 path="/slider"
                 component={() => {
-                  return (activePage !== "hourly") ? (<Slider miniData = {miniCardData} arr={data[activePage]} city={city} active = {activePage}/>)
+                  return (activePage !== "hourly") ? (<Slider chart = {chart} chartToggle = {() => setChart(!chart)} miniData = {miniCardData} arr={data[activePage]} city={city} active = {activePage}/>)
                    : (<HourlySlider miniData = {miniCardData} arr = {data['hourly']} city = {city} active = {activePage} currSlide = {currSlide} setCurrSlide = {(val) => {setCurrSlide(val)}}/>);
                 }}
                 />
@@ -233,7 +233,7 @@ function App() {
 
                 <Redirect to = '/slider'></Redirect>
 
-                <Route path="/chart" component={() => <Chart activePage = {activePage} />} />
+                <Route path="/chart" component={() => <Chart activePage = {activePage} chart = {chart} chartToggle = {() => setChart(!chart)} />} />
 
             </Router> 
              
