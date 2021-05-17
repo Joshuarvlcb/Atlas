@@ -4,7 +4,7 @@ import Az from "./assests/az-background.jpg";
 import Italy from "./assests/italy-background.jpg";
 import Paris from "./assests/paris.bg.jpg";
 import Spain from "./assests/spain-bg.jpg";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "./components/Slider";
 import Navbar from "./components/Navbar";
 import GuestIcon from "./assests/guest-icon.png";
@@ -14,21 +14,26 @@ import weather from './assests/weather.json'
 import Settings from './components/Settings'
 import HourlySlider from "./components/HourlySlider.jsx";
 import DailyCard from './components/DailyCard'
-import { useEffect } from 'react'
+// import axios from 'axios'
 //We need router to add the ability ro handle routing in react
 function App() {
 
-  const [lat, setLat] = useState('33.535752679481384')
-  const [lon, setLon] = useState('-112.29286076010044')
-  const [newData, setNewData] = useState(null)
+  //api key: 004d873acf1ccd606483135a214f13d1
+  //central campus: 33.53596730937949, -112.2928500313519
 
-  // useEffect(() => {
-  //   fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={part}&appid=004d873acf1ccd606483135a214f13d1`)
-  //   .then(response => {
-  //     setNewData(response)
-  //     return response;
+  const [newData, setNewData] = useState(weather)
+  const [lat, setLat] = useState(33.53596730937949)
+  const [lon, setLon] = useState(-112.2928500313519)
+
+  // useEffect( () => {
+  //   axios(`http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=004d873acf1ccd606483135a214f13d1`)
+  //   .then( (response) => {
+  //     setNewData(response.data)
   //   })
-  // }, [])
+  //   .catch(error => {
+  //     console.error("error fetching data", error)
+  //   })
+  // })
 
   const [cityDaily,setCityDaily] = useState(
     {
@@ -76,29 +81,28 @@ function App() {
   }
   
   const data = {
-    today: [weather['hourly'][4], weather['hourly'][11], weather['hourly'][16], weather['hourly'][23]],
+    today: [newData['hourly'][4], newData['hourly'][11], newData['hourly'][16], newData['hourly'][23]],
     hourly: [],
     grabHourly(){
       for(let i = 0; i < 48; i++){
-        this.hourly.push(weather['hourly'][i])
+        this.hourly.push(newData['hourly'][i])
       }
     },
     arr:[],
     data:['01d','02d','03d','01n'],
     getDaily(){
       this.data.forEach(curr => {
-        for(let i in weather.hourly){
-          if(weather.hourly[i].weather[0].icon === curr){
-            this.arr.push(weather.hourly[i]);
+        for(let i in newData.hourly){
+          if(newData.hourly[i].weather[0].icon === curr){
+            this.arr.push(newData.hourly[i]);
             break
           }
           
         }
       })
-      console.log(this.arr)
       
     },
-    daily: weather['daily'].slice(0, 7),
+    daily: newData['daily'].slice(0, 7),
   }
   
   const [temp,setTemp] = useState({temp:weather['hourly'][4]['temp'],humidity:weather['hourly'][4]['humidity'],wind:weather['hourly'][4]['wind_speed'],icon:'http://openweathermap.org/img/wn/01n@2x.png'})
@@ -147,6 +151,7 @@ function App() {
     );
   };
   const activeCity = (e) => {
+    console.log(newData);
     cityName(e);
   };
 
