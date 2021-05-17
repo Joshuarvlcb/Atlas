@@ -231,19 +231,22 @@
         margin: auto;
         height: 5rem;
         flex-direction: row!important;
+        align-items: center;
         justify-content: space-between;
-
+        margin-bottom:5vh;
+        position: relative;
         div img{
           position: relative!important;
         }
 
         .text-container{ 
           width: 100%;
-          align-items: center;
           display: flex;
           flex-direction: row!important;
           justify-content: space-evenly;  
-          position: relative;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
         }
       }
     }
