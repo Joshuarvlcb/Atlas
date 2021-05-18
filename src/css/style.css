@@ -239,6 +239,8 @@ body {
 }
 
 .buttonContainer {
+  position: relative;
+  bottom: 5.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -296,14 +298,23 @@ body {
     width: 95vw;
   }
   #dailyCard {
-    margin-bottom: 25vh;
+    margin-bottom: 2rem;
   }
   .details {
     width: 93vw;
   }
+  .buttonContainer {
+    bottom: 39.5rem;
+  }
+  .hourlySlider .daily-slider {
+    margin-top: 1rem;
+  }
   .slider {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
     width: 95vw;
-    height: 30%;
+    height: auto;
   }
   .slider .daily-slider {
     -webkit-box-orient: vertical;
@@ -325,7 +336,7 @@ body {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    margin-bottom: 5vh;
+    margin-bottom: 1rem;
     position: relative;
   }
   .slider .daily-slider .mini-card div img {
@@ -347,6 +358,9 @@ body {
     top: 50%;
     -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
+  }
+  .slider .daily-slider .mini-card .chart-con {
+    height: auto;
   }
   .icon {
     display: none;
