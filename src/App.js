@@ -4,12 +4,12 @@ import Az from "./assests/az-background.jpg";
 import Italy from "./assests/italy-background.jpg";
 import Paris from "./assests/paris.bg.jpg";
 import Spain from "./assests/spain-bg.jpg";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Slider from "./components/Slider";
 import Navbar from "./components/Navbar";
 import GuestIcon from "./assests/guest-icon.png";
 import Chart from "./components/Chart";
-import { BrowserRouter as Router, Switch as S, Route,Link,Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Switch as Route,Redirect } from "react-router-dom";
 import weather from './assests/weather.json'
 import Settings from './components/Settings'
 import HourlySlider from "./components/HourlySlider.jsx";
@@ -23,8 +23,8 @@ function App() {
   //central campus: 33.53596730937949, -112.2928500313519
 
   const [newData, setNewData] = useState(weather)
-  const [lat, setLat] = useState(33.53596730937949)
-  const [lon, setLon] = useState(-112.2928500313519)
+  // const [lat, setLat] = useState(33.53596730937949)
+  // const [lon, setLon] = useState(-112.2928500313519)
   const [showNav, setShowNav] = useState( (window.innerWidth <= 900) ? false : true)
   const [activeNav, setActiveNav] = useState(false)
 
@@ -136,6 +136,9 @@ function App() {
       case  'Madrid':
         country = 'Spain'
         break
+      default:
+        country = 'United States'
+        break;
 
     }
     console.log(country)
@@ -145,7 +148,7 @@ function App() {
     })
     setCityData(
       cityData.map((obj) => {
-        if (obj.name == target) {
+        if (obj.name === target) {
           return { ...obj, active: (obj.active = true) };
         } else if (obj.active) {
           return { ...obj, active: !obj.active };
@@ -225,7 +228,7 @@ function App() {
               <Route
                 path="/slider"
                 component={() => {
-                  return (activePage !== "hourly") ? (<Slider chart = {chart} chartToggle = {() => setChart(!chart)} miniData = {miniCardData} arr={data[activePage]} city={city} active = {activePage}/>)
+                  return (activePage !== "hourly") ? (<Slider chart = {chart} chartToggle = {() => setChart(!chart)} miniData = {miniCardData} arr={data[activePage]} city={city} active = {activePage} /> )
                    : (<HourlySlider miniData = {miniCardData} arr = {data['hourly']} city = {city} active = {activePage} currSlide = {currSlide} setCurrSlide = {(val) => {setCurrSlide(val)}}/>);
                 }}
                 />
