@@ -18,7 +18,15 @@ body {
 }
 
 .bigContainer {
-  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .forehead {
@@ -263,7 +271,6 @@ body {
 @media only screen and (max-width: 900px) {
   .bigContainer {
     background-color: #f3f3f3 !important;
-    height: 150vh !important;
   }
   .weather-forcast {
     display: none;
@@ -294,10 +301,14 @@ body {
     margin-top: 20px;
     width: 90% !important;
   }
+  .forcast-con {
+    width: 100%;
+  }
   .daily-card-con {
     width: 95vw;
   }
   #dailyCard {
+    margin-top: 10vh;
     margin-bottom: 2rem;
   }
   .details {

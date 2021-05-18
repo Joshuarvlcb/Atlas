@@ -9,7 +9,7 @@ const Slider = ({ arr, city, active ,miniData,chartToggle,chart}) => {
 
   return (
     <div className="slider">
-      <div className="container d-flex justify-content-around align-items-center">
+      <div className="container d-flex justify-content-around align-items-center  chart_h3">
       <h3
         style={{
           paddingBottom: "20px",
@@ -20,7 +20,7 @@ const Slider = ({ arr, city, active ,miniData,chartToggle,chart}) => {
       >
         {city}
       </h3>
-      <Detail activePage = {active} chartToggle = {chartToggle} chart = {chart} />
+      <Detail className = '.chart_h3' activePage = {active} chartToggle = {chartToggle} chart = {chart} />
       </div>
       <div className="daily-slider">
         {arr.map((card, i) => {
