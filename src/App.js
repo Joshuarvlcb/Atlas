@@ -9,7 +9,7 @@ import Slider from "./components/Slider";
 import Navbar from "./components/Navbar";
 import GuestIcon from "./assests/guest-icon.png";
 import Chart from "./components/Chart";
-import { BrowserRouter as Router, Switch as Route,Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Switch as Link, Route, Redirect } from "react-router-dom";
 import weather from './assests/weather.json'
 import Settings from './components/Settings'
 import HourlySlider from "./components/HourlySlider.jsx";
