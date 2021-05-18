@@ -15,7 +15,9 @@ body{
 }
 
 .bigContainer{
-  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .forehead{
@@ -197,7 +199,6 @@ body{
 @media only screen and (max-width: 900px){
   .bigContainer{
     background-color: #f3f3f3!important;
-    height: 150vh!important;
   }
   .weather-forcast{
     display: none;
@@ -228,12 +229,17 @@ body{
     }
 
   }
-
+.chart_h3{
+  margin-top: 17vh;
+}
+.forcast-con{
+  width: 100%;
+}
   .daily-card-con{
     width: 95vw;
   }
   #dailyCard{
-    margin-bottom: 25vh;
+    margin-top: 10vh;
   }
   .details{
     width: 93vw;
@@ -241,9 +247,9 @@ body{
 
   .slider{
     width: 95vw;
-    height: 30%;
     
     .daily-slider{
+
       flex-direction: column;
       
       .mini-card{

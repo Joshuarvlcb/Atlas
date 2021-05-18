@@ -170,8 +170,8 @@ function App() {
       {data.grabHourly()}
       {data.getDaily()}
       <div
-        className="d-flex align-items-center justify-content-center bigContainer"
-        style={{ height: "100vh", width: "100vw", backgroundColor: "#4FA1CA" }}
+        className="bigContainer"
+        style={{backgroundColor: "#4FA1CA" }}
       >
         <div className="app-container">
           {showNav ? <Navbar toggleNav = {() => {setActiveNav(!activeNav)}} showNav = {showNav} data = {cityData} activeF = {activeCity} cityDaily = {cityDaily} temp = {temp} setActive  = {(val) => {setActivePage(val)}} activeNav = {activeNav}/> : 

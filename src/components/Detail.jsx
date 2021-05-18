@@ -9,7 +9,7 @@ const Detail = ({ activePage,chartToggle,chart}) => {
       <h5>
           
         {chart ? (
-          <Link to="/chart" onClick = {chartToggle}>
+          <Link  to="/chart" onClick = {chartToggle}>
             Details more <FaArrowRight style={{ marginLeft: "0px" }} />
           </Link>
         ) : (
