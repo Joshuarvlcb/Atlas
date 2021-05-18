@@ -7,6 +7,16 @@
           box-sizing: border-box;
 }
 
+.card-con-con {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body {
+  height: 100%;
+}
+
 .bigContainer {
   height: 100vh;
 }
@@ -251,6 +261,7 @@
 @media only screen and (max-width: 900px) {
   .bigContainer {
     background-color: #f3f3f3 !important;
+    height: 150vh !important;
   }
   .weather-forcast {
     display: none;
@@ -286,7 +297,6 @@
   }
   #dailyCard {
     margin-bottom: 25vh;
-    margin-top: 10vh;
   }
   .details {
     width: 93vw;
@@ -341,10 +351,13 @@
   .icon {
     display: none;
   }
-  #dailyCard div {
+  .card-con-con {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
+  }
+  .app-container {
+    height: 84%;
   }
 }
 

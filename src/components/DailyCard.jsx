@@ -9,7 +9,7 @@ const DailyCard = ({ temp, cityDaily }) => {
       style = {{ height: '55%'}}
     >
       <Container
-        className="d-flex justify-content-center align-items-center"
+        className="d-flex justify-content-center card-con-con"
         style={{ height: "100%" }}
       >
         <div as="div" className="card-con">
