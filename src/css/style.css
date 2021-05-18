@@ -50,9 +50,10 @@ body {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 2rem;
-  top: 1.4rem;
+  left: 1rem;
+  top: 1rem;
   z-index: 101;
+  color: #6bb3dd;
 }
 
 .app-container .nav-container {
@@ -262,10 +263,12 @@ body {
           justify-content: space-between;
 }
 
-.buttonContainer svg {
+.menu {
   color: #6bb3dd;
   font-size: 3rem;
   cursor: pointer;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
   margin: 10px;
 }
 
@@ -282,12 +285,15 @@ body {
   }
   .nav-container {
     width: 100vw !important;
-    height: 100vh !important;
+    height: 120vh !important;
     border-radius: 0 !important;
     position: absolute;
     z-index: 100;
     left: 0;
     top: 0;
+  }
+  .nav-container nav {
+    padding: 0px;
   }
   .nav-container .card-con {
     display: none;
