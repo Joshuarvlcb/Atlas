@@ -18,6 +18,7 @@ body {
 }
 
 .bigContainer {
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -271,6 +272,7 @@ body {
 @media only screen and (max-width: 900px) {
   .bigContainer {
     background-color: #f3f3f3 !important;
+    height: auto;
   }
   .weather-forcast {
     display: none;
@@ -326,6 +328,7 @@ body {
             justify-content: flex-end;
     width: 95vw;
     height: auto;
+    margin-bottom: 5vh;
   }
   .slider .daily-slider {
     -webkit-box-orient: vertical;
