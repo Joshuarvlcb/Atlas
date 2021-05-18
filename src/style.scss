@@ -184,6 +184,8 @@ body{
 
 //hourly slider
 .buttonContainer{
+  position: relative;
+  bottom: 5.5rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -229,9 +231,7 @@ body{
     }
 
   }
-.chart_h3{
-  margin-top: 17vh;
-}
+
 .forcast-con{
   width: 100%;
 }
@@ -240,13 +240,24 @@ body{
   }
   #dailyCard{
     margin-top: 10vh;
+    margin-bottom: 2rem;
   }
   .details{
     width: 93vw;
   }
 
+  .buttonContainer{
+    bottom: 39.5rem;
+  }
+  .hourlySlider{
+    .daily-slider{
+      margin-top: 1rem;
+    }
+  }
   .slider{
+    justify-content: flex-end;
     width: 95vw;
+    height: auto;
     
     .daily-slider{
 
@@ -259,7 +270,7 @@ body{
         flex-direction: row!important;
         align-items: center;
         justify-content: space-between;
-        margin-bottom:5vh;
+        margin-bottom:1rem;
         position: relative;
         div img{
           position: relative!important;
@@ -274,12 +285,17 @@ body{
           top: 50%;
           transform: translateY(-50%);
         }
+
+        .chart-con{
+          height: auto;
+        }
       }
     }
   }
   .icon{
     display: none;
   }
+  
 
   .card-con-con{
     align-items: flex-start;

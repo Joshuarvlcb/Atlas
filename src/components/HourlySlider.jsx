@@ -19,7 +19,7 @@ const HourlySlider = ({ arr, city, active, miniData, currSlide, setCurrSlide }) 
   }
 
     return(
-    <div className="slider">
+    <div className="slider hourlySlider">
       <h3
         style={{
           paddingBottom: "20px",
