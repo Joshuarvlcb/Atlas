@@ -202,6 +202,7 @@ body{
 @media only screen and (max-width: 900px){
   .bigContainer{
     background-color: #f3f3f3!important;
+    height: auto;
   }
   .weather-forcast{
     display: none;
@@ -259,6 +260,7 @@ body{
     justify-content: flex-end;
     width: 95vw;
     height: auto;
+    margin-bottom: 5vh;
     
     .daily-slider{
 
