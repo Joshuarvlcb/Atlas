@@ -4,7 +4,7 @@ import Az from "./assests/az-background.jpg";
 import Italy from "./assests/italy-background.jpg";
 import Paris from "./assests/paris.bg.jpg";
 import Spain from "./assests/spain-bg.jpg";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "./components/Slider";
 import Navbar from "./components/Navbar";
 import GuestIcon from "./assests/guest-icon.png";
@@ -15,7 +15,7 @@ import Settings from './components/Settings'
 import HourlySlider from "./components/HourlySlider.jsx";
 import DailyCard from './components/DailyCard'
 import {GiHamburgerMenu} from "react-icons/gi"
-// import axios from 'axios'
+import axios from 'axios'
 //We need router to add the ability ro handle routing in react
 function App() {
 
