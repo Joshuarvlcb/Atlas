@@ -6,7 +6,6 @@ const NavLinks = ({ name, logo, onclick, active }) => {
       <Nav.Link
         onClick={onclick}
         style={{ height: "40px", color: "white", fontWeight: "600" }}
-        className="d-flex align-items-center"
         className={(active) ? "d-flex align-items-center activeTab" : "d-flex align-items-center"}
       >
         {logo} {name}
