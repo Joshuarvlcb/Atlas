@@ -229,9 +229,9 @@ function App() {
                 path="/slider"
                 component={() => {
                   return (activePage !== "hourly") ? (<Slider chart = {chart} chartToggle = {() => setChart(!chart)} miniData = {miniCardData} arr={data[activePage]} city={city} active = {activePage} /> )
-                   : (<HourlySlider miniData = {miniCardData} arr = {data['hourly']} city = {city} active = {activePage} currSlide = {currSlide} setCurrSlide = {(val) => {setCurrSlide(val)}}/>);
+                   : (<HourlySlider chart = {chart} chartToggle = {() => setChart(!chart)} miniData = {miniCardData} arr = {data['hourly']} city = {city} active = {activePage} currSlide = {currSlide} setCurrSlide = {(val) => {setCurrSlide(val)}}/>);
                 }}
-                />
+                /> 
                       
 
                 <Redirect to = '/slider'></Redirect>

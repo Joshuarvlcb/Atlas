@@ -249,7 +249,6 @@ body {
 
 .buttonContainer {
   position: relative;
-  bottom: 5.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
