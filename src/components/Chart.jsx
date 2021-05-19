@@ -25,7 +25,7 @@ const Chart = ({activePage, chartToggle,chart}) => {
           <Detail activePage = {activePage} chartToggle = {chartToggle} chart={chart}/>
         </div>
 
-        {/* <Line
+        <Line
           style={{ padding: "0 25px" }}
           height="70%"
           data={{
@@ -51,7 +51,7 @@ const Chart = ({activePage, chartToggle,chart}) => {
               ],
             },
           }}
-        /> */}
+        />
       </div>
     </>
   );

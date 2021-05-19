@@ -4,6 +4,7 @@ import Az from "./assests/az-background.jpg";
 import Italy from "./assests/italy-background.jpg";
 import Paris from "./assests/paris.bg.jpg";
 import Spain from "./assests/spain-bg.jpg";
+import {CSSTransition   } from 'react-transition-group'; // ES6
 import { GrClose } from 'react-icons/gr'
 import React, { useEffect, useState } from "react";
 import Slider from "./components/Slider";
@@ -164,7 +165,7 @@ function App() {
     setShowNav((window.innerWidth <= 900) ? false : true)
     if (showNav) setActiveNav(false)
   }
-
+  const [showNavbtn, setshowNavbtn] = useState(true);
   return (
     <>
       {window.addEventListener('resize', checkSize)}
@@ -175,13 +176,33 @@ function App() {
         style={{ backgroundColor: "#4FA1CA" }}
       >
         <div className="app-container">
+
           {showNav ? <Navbar toggleNav={() => { setActiveNav(!activeNav) }} showNav={showNav} data={cityData} activeF={activeCity} cityDaily={cityDaily} temp={temp} setActive={(val) => { setActivePage(val) }} activeNav={activeNav} /> :
             <>
-              {activeNav ? <GrClose className="menu" style = {{color:'rgb(107, 179, 221)'}} onClick={() => { setActiveNav(!activeNav) }} /> : <GiHamburgerMenu className="menu" onClick={() => { setActiveNav(!activeNav) }} />}
 
-              {activeNav && <Navbar toggleNav={() => { setActiveNav(!activeNav) }} showNav={showNav} data={cityData} activeF={activeCity} cityDaily={cityDaily} temp={temp} setActive={(val) => { setActivePage(val) }} activeNav={activeNav} />}
-            </>}
+{activeNav ? <GrClose className="menu" style={{ color: 'rgb(107, 179, 221)' }} onClick={() => { setActiveNav(!activeNav) }} /> : <GiHamburgerMenu className="menu" onClick={() => { setActiveNav(!activeNav) }} />}
+         
+</>}
+
+     <CSSTransition       
+     in={showNavbtn}
+     timeout={300}
+     classNames="example"
+     onEnter={() => setshowNavbtn(true)}
+     onExited={() => setshowNavbtn(false)}
+    >
+      
+      <div>   
+          {activeNav && <Navbar toggleNav={() => { setActiveNav(!activeNav) }} showNav={showNav} data={cityData} activeF={activeCity} cityDaily={cityDaily} temp={temp} setActive={(val) => { setActivePage(val) }} activeNav={activeNav} />}
+      </div>
+
+</CSSTransition>
+
+
+
+
           {/* weather forecast */}
+         
 
           {(activePage !== "settings") ? (<div className="forcast-con">
             <div
