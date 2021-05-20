@@ -10,9 +10,9 @@ import { FiSettings } from "react-icons/fi";
 import Logo from "../assests/weather-logo.png";
 import Cards from './Cards'
 
-const Navbar = ({ setActive, temp, cityDaily, activeNav, activeF, data, showNav, toggleNav }) => {
+const Navbar = ({ setActive, temp, cityDaily, activeNav, activeF, data, showNav, toggleNav, animation }) => {
   return (
-    <div className="nav-container" style={{ margin: "0" }}>
+    <div className="nav-container" id="navbar-con" style={{ margin: "0", animationName: (animation === 'out') ? 'navbarOut' : 'navbarIn'}}>
       <Header logo={Logo} />
 
       <Nav
@@ -76,11 +76,13 @@ const Navbar = ({ setActive, temp, cityDaily, activeNav, activeF, data, showNav,
       {showNav && 
         <DailyCard cityDaily={cityDaily} temp={temp} />
       }
+
+      {!showNav && 
+        <div className = "navCities">
+          <Cards activeF={activeF} data={data}/>
+        </div>
+      }
       
-      {activeNav && 
-      <div className = "navCities">
-        <Cards activeF={activeF} data={data}/>
-      </div>}
     </div>
   );
 };

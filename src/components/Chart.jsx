@@ -14,7 +14,7 @@ const Chart = ({activePage, chartToggle,chart, newData, weather}) => {
 
   const weatherData = {
     today: [newData['hourly'][4]['temp'], newData['hourly'][11]['temp'], newData['hourly'][16]['temp'], newData['hourly'][23]['temp']],
-    hourly: weather['daily'],
+    hourly: [newData['hourly'][5]['temp'], newData['hourly'][11]['temp'], newData['hourly'][17]['temp'], newData['hourly'][23]['temp'], newData['hourly'][29]['temp'], newData['hourly'][35]['temp'], newData['hourly'][41]['temp'], newData['hourly'][47]['temp']],
     daily: [newData['daily'][0]['temp']['day'], newData['daily'][1]['temp']['day'], newData['daily'][2]['temp']['day'], newData['daily'][3]['temp']['day'], newData['daily'][4]['temp']['day'], newData['daily'][5]['temp']['day'], newData['daily'][6]['temp']['day']]
   }
 

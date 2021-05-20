@@ -50,6 +50,7 @@ function App() {
   const [city, setCity] = useState("Buckeye");
   const [activePage, setActivePage] = useState('today')
   const [currSlide, setCurrSlide] = useState(0)
+  const [animation, setAnimation] = useState('out')
   const [cityData, setCityData] = useState([
     {
       id: 1,
@@ -170,6 +171,11 @@ function App() {
   }
   const [showNavbtn, setshowNavbtn] = useState(true);
 
+  const toggleNav = () => {
+    setActiveNav(!activeNav)
+    setAnimation('out')
+  }
+
   const transitionStyles = {
     entering: { opacity: 0 },
     entered: { opacity: 1 },
@@ -195,35 +201,24 @@ function App() {
       >
         <div className="app-container">
 
-          {showNav ? <Navbar toggleNav={() => { setActiveNav(!activeNav) }} showNav={showNav} data={cityData} activeF={activeCity} cityDaily={cityDaily} temp={temp} setActive={(val) => { setActivePage(val) }} activeNav={activeNav} /> :
+          {showNav ? <Navbar toggleNav={toggleNav} showNav={showNav} data={cityData} activeF={activeCity} cityDaily={cityDaily} temp={temp} setActive={(val) => { setActivePage(val) }} activeNav={activeNav} /> :
             <>
 
               {activeNav ? <GrClose  className="menu" style={{ color: 'rgb(107, 179, 221)' }} onClick={() => {
                  setActiveNav(false)
                  setshowNavbtn(!showNavbtn)
+                 setAnimation('out')
                  console.log(showNavbtn) }} /> : <GiHamburgerMenu className="menu" onClick={() => { 
                    setActiveNav(true) 
-                   setshowNavbtn(!activeNav)
+                  setshowNavbtn(!activeNav)
+                  setAnimation('in')
+                  console.log(animation)
                    }} />}
 
             </>}
-
+            
+            {!showNav && <Navbar toggleNav={ toggleNav } showNav={showNav} data={cityData} activeF={activeCity} cityDaily={cityDaily} temp={temp} setActive={(val) => { setActivePage(val) }} activeNav={activeNav} animation = {animation} />}
           
-
-             
-          
-
-
-          <Transition in={showNavbtn} timeout = {300} >
-        {state => (
-          <div style={{
-            ...defaultStyle,
-            ...transitionStyles[state]
-          }}>
-             {activeNav && <Navbar toggleNav={() => { setActiveNav(!activeNav) }} showNav={showNav} data={cityData} activeF={activeCity} cityDaily={cityDaily} temp={temp} setActive={(val) => { setActivePage(val) }} activeNav={activeNav} />}
-          </div>
-        )}
-      </Transition>
 
 
 
