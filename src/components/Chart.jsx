@@ -3,7 +3,7 @@ import { Line } from "react-chartjs-2";
 import { Bar } from "react-chartjs-2"
 import Detail from "./Detail";
 
-const Chart = ({activePage, chartToggle,chart, newData}) => {
+const Chart = ({activePage, chartToggle,chart, newData, weather}) => {
 
 
   const labels = {
@@ -11,11 +11,19 @@ const Chart = ({activePage, chartToggle,chart, newData}) => {
     daily: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
     hourly: ['6:00', '12:00', '18:00', '24:00', '36:00', '42:00', '48:00']
   }
+
+  const weatherData = {
+    today: [newData['hourly'][4]['temp'], newData['hourly'][11]['temp'], newData['hourly'][16]['temp'], newData['hourly'][23]['temp']],
+    hourly: weather['daily'],
+    daily: [newData['daily'][0]['temp']['day'], newData['daily'][1]['temp']['day'], newData['daily'][2]['temp']['day'], newData['daily'][3]['temp']['day'], newData['daily'][4]['temp']['day'], newData['daily'][5]['temp']['day'], newData['daily'][6]['temp']['day']]
+  }
+
   const data = {
     labels: labels[activePage],
     datasets: [
       {
-        data: [10, 20, 15, 45],
+        label: 'Temperature',
+        data: weatherData[activePage],
         fill: false,
         backgroundColor: "rgb(255, 99, 132)",
         borderColor: "rgb(255, 99, 132)",

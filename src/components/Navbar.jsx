@@ -16,7 +16,7 @@ const Navbar = ({ setActive, temp, cityDaily, activeNav, activeF, data, showNav,
       <Header logo={Logo} />
 
       <Nav
-        className="d-flex flex-column justify-content-between"
+        className="d-flex-lg flex-column justify-content-between align-items-center align-items-lg-start"
         style={{ paddingLeft: "25px", height: "30%" }}
       >
         <NavLinks

@@ -36,9 +36,10 @@ body{
     width: 40px;
     height: 40px;
     position: absolute;
-    left: 2rem;
-    top: 1.4rem;
+    left: 1rem;
+    top: 1rem;
     z-index: 101;
+    color: rgb(107, 179, 221);
   }
 
   .nav-container {
@@ -190,13 +191,14 @@ body{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
-  svg{
-    color: rgb(107, 179, 221);
-    font-size: 3rem;
-    cursor: pointer;
-    margin: 10px;
-  }
+ 
+}
+.menu{
+  color: rgb(107, 179, 221);
+  font-size: 3rem;
+  cursor: pointer;
+  transition: all .3s ease;
+  margin: 10px;
 }
 
 @media only screen and (max-width: 900px){
@@ -212,12 +214,16 @@ body{
   }
   .nav-container{
     width: 100vw!important;
-    height: 100vh!important;
+    height: 120vh!important;
     border-radius: 0!important;
     position: absolute;
     z-index: 100;
     left: 0;
     top: 0;
+    nav{
+      padding: 0px;
+
+    }
     .card-con{
       display: none;
     }
@@ -312,4 +318,18 @@ body{
   .daily-card-con{
     display: none;
   }
+}
+.example-enter {
+  opacity: 0;
+}
+.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+.example-leave {
+  opacity: 1;
+}
+.example-leave-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
 }
