@@ -11,22 +11,13 @@ import Slider from "./components/Slider";
 import Navbar from "./components/Navbar";
 import GuestIcon from "./assests/guest-icon.png";
 import Chart from "./components/Chart";
-<<<<<<< HEAD
-import { BrowserRouter as Router, Switch as S, Route, Link, Redirect } from "react-router-dom";
-=======
 import { BrowserRouter as Router, Switch as Link, Route, Redirect } from "react-router-dom";
->>>>>>> 5de6850f1cad51fd30eee14d76d79110f9eee7c5
 import weather from './assests/weather.json'
 import Settings from './components/Settings'
 import HourlySlider from "./components/HourlySlider.jsx";
 import DailyCard from './components/DailyCard'
-<<<<<<< HEAD
-import { GiHamburgerMenu } from "react-icons/gi"
-// import axios from 'axios'
-=======
 import {GiHamburgerMenu} from "react-icons/gi"
 import axios from 'axios'
->>>>>>> 5de6850f1cad51fd30eee14d76d79110f9eee7c5
 //We need router to add the ability ro handle routing in react
 function App() {
 
@@ -34,15 +25,9 @@ function App() {
   //central campus: 33.53596730937949, -112.2928500313519
 
   const [newData, setNewData] = useState(weather)
-<<<<<<< HEAD
-  const [lat, setLat] = useState(33.53596730937949)
-  const [lon, setLon] = useState(-112.2928500313519)
-  const [showNav, setShowNav] = useState((window.innerWidth <= 900) ? false : true)
-=======
   // const [lat, setLat] = useState(33.53596730937949)
   // const [lon, setLon] = useState(-112.2928500313519)
   const [showNav, setShowNav] = useState( (window.innerWidth <= 900) ? false : true)
->>>>>>> 5de6850f1cad51fd30eee14d76d79110f9eee7c5
   const [activeNav, setActiveNav] = useState(false)
 
   // useEffect( () => {
@@ -229,7 +214,7 @@ function App() {
           
 
 
-          <Transition in={showNavbtn} timeout = {300} >
+          <Transition in={showNavbtn} timeout = {500} >
         {state => (
           <div style={{
             ...defaultStyle,
@@ -289,18 +274,11 @@ function App() {
               <Route
                 path="/slider"
                 component={() => {
-<<<<<<< HEAD
-                  return (activePage !== "hourly") ? (<Slider chart={chart} chartToggle={() => setChart(!chart)} miniData={miniCardData} arr={data[activePage]} city={city} active={activePage} />)
-                    : (<HourlySlider miniData={miniCardData} arr={data['hourly']} city={city} active={activePage} currSlide={currSlide} setCurrSlide={(val) => { setCurrSlide(val) }} />);
-                }}
-              />
-=======
                   return (activePage !== "hourly") ? (<Slider chart = {chart} chartToggle = {() => setChart(!chart)} miniData = {miniCardData} arr={data[activePage]} city={city} active = {activePage} /> )
                    : (<HourlySlider chart = {chart} chartToggle = {() => setChart(!chart)} miniData = {miniCardData} arr = {data['hourly']} city = {city} active = {activePage} currSlide = {currSlide} setCurrSlide = {(val) => {setCurrSlide(val)}}/>);
                 }}
                 /> 
                       
->>>>>>> 5de6850f1cad51fd30eee14d76d79110f9eee7c5
 
 
               <Redirect to='/slider'></Redirect>
