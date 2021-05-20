@@ -18,6 +18,8 @@ const Chart = ({activePage, chartToggle,chart, newData, weather}) => {
     daily: [newData['daily'][0]['temp']['day'], newData['daily'][1]['temp']['day'], newData['daily'][2]['temp']['day'], newData['daily'][3]['temp']['day'], newData['daily'][4]['temp']['day'], newData['daily'][5]['temp']['day'], newData['daily'][6]['temp']['day']]
   }
 
+  
+
   const data = {
     labels: labels[activePage],
     datasets: [
@@ -50,15 +52,16 @@ const Chart = ({activePage, chartToggle,chart, newData, weather}) => {
     },
   };
 
+
   return (
     <>
       <div
-        className="chart-con d-flex align-items-center flex-column justify-content-center"
-        style={{ height: "50%" }}
+        className="chart-con d-flex justify-content-center align-items-center flex-column"
+        style = {{ height: (window.innerWidth <= 900) ? 'auto' :'50%' } }
       >
         <div
           className=" d-flex justify-content-between align-items-center"
-          style={{ width: "100%"  , paddingBottom: "20px"
+          style={{ width: "100%" 
         }}
         >
           <h3
@@ -72,8 +75,8 @@ const Chart = ({activePage, chartToggle,chart, newData, weather}) => {
           <Detail activePage = {activePage} chartToggle = {chartToggle} chart={chart}/>
         </div>
         <Line
-          style={{ padding: "0 25px" }}
-          height="70%"
+        height = {(window.innerWidth <= 900) ? '100%' :'70%'}
+          style={{ padding: "0 20px" }}
           data= {data}
           options={options}
         />
