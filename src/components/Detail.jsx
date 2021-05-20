@@ -4,7 +4,7 @@ import { FaArrowRight } from "react-icons/fa";
 const Detail = ({ activePage,chartToggle,chart}) => {
 
   return (
-    <div className="details" style={{ marginRight: "20px",paddingBottom:'10px'}}>
+    <div className="details " style={{ marginRight: "20px"}}>
       <h5>
           
         {chart ? (

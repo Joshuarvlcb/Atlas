@@ -283,7 +283,7 @@ function App() {
 
               <Redirect to='/slider'></Redirect>
 
-              <Route path="/chart" component={() => <Chart activePage={activePage} chart={chart} chartToggle={() => setChart(!chart)} />} />
+              <Route path="/chart" component={() => <Chart activePage={activePage} chart={chart} chartToggle={() => setChart(!chart)} newData = {newData} weather = {data} />} />
 
             </Router>
 

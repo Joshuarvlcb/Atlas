@@ -227,6 +227,7 @@ body{
     .card-con{
       display: none;
     }
+   
     .navCities{
       display: grid;
       justify-items: center;
@@ -242,12 +243,13 @@ body{
 
 .forcast-con{
   width: 100%;
+  min-height: auto;
 }
   .daily-card-con{
     width: 95vw;
   }
   #dailyCard{
-    margin-top: 10vh;
+    margin-top: 14vh;
     margin-bottom: 2rem;
   }
   .details{
