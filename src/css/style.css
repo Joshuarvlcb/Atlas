@@ -326,6 +326,10 @@ body {
   .forehead {
     display: none !important;
   }
+  svg.menu {
+    position: fixed !important;
+    top: 0;
+  }
   .nav-container {
     -webkit-animation-fill-mode: forwards;
             animation-fill-mode: forwards;
@@ -334,7 +338,7 @@ body {
     width: 100% !important;
     height: 100% !important;
     border-radius: 0 !important;
-    position: absolute;
+    position: fixed;
     z-index: 100;
     left: 0;
     top: 0;

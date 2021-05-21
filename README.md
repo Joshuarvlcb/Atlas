@@ -23,6 +23,7 @@ To open the website:
     Kevin: Put many parts of the website into their own components and started the JSON implemenation
 
     5/11/2021
+    Erik: Found SVGs, fonts, and images we could use in the website.
     Joshua: Decided on how to display the detailed information and made the information print onto the daily card
     Kevin: Worked more on the hourly slider and made it functional
 
@@ -56,5 +57,6 @@ To open the website:
     5/21/2021
     Joshua: 
     Kevin: Redid the cities in the mobile navbar to make it look better
+
 
 
