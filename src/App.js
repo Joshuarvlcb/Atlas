@@ -204,7 +204,7 @@ function App() {
           {showNav ? <Navbar toggleNav={toggleNav} showNav={showNav} data={cityData} activeF={activeCity} cityDaily={cityDaily} temp={temp} setActive={(val) => { setActivePage(val) }} activeNav={activeNav} /> :
             <>
 
-              {activeNav ? <GrClose  className="menu" style={{ color: 'rgb(107, 179, 221)' }} onClick={() => {
+              {activeNav ? <GrClose  className="menu" style={{ color: 'rgb(107, 179, 221)', fill: 'rgb(107, 179, 221)' }} onClick={() => {
                  setActiveNav(false)
                  setshowNavbtn(!showNavbtn)
                  setAnimation('out')

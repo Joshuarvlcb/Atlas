@@ -233,13 +233,14 @@ body{
   .nav-container{
     animation-fill-mode: forwards;
     animation-duration: 0.5s;
-    width: 100vw!important;
-    height: 120vh!important;
+    width: 100%!important;
+    height: 100%!important;
     border-radius: 0!important;
     position: absolute;
     z-index: 100;
     left: 0;
     top: 0;
+
     nav{
       padding: 0px;
 
@@ -250,12 +251,27 @@ body{
    
     .navCities{
       display: grid;
-      justify-items: center;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 45% 45%;
+      color: white;
+      gap: 5%;
+      margin: 2rem auto;
+      margin-left: 1rem;
+      width: 95%;
+      // justify-items: center;
       
-      div{
-        margin-top: 20px;
-        width: 90%!important;
+      .city-card{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-right: 22.5%;
+        img{
+          width: 20vh
+        }
+        div{
+          width: 100%;
+          margin-left: 100%;
+          text-align: center;
+        }
       }
     }
 
@@ -323,6 +339,9 @@ body{
       }
     }
   }
+
+  
+
   .icon{
     display: none;
   }

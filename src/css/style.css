@@ -331,8 +331,8 @@ body {
             animation-fill-mode: forwards;
     -webkit-animation-duration: 0.5s;
             animation-duration: 0.5s;
-    width: 100vw !important;
-    height: 120vh !important;
+    width: 100% !important;
+    height: 100% !important;
     border-radius: 0 !important;
     position: absolute;
     z-index: 100;
@@ -348,13 +348,32 @@ body {
   .nav-container .navCities {
     display: -ms-grid;
     display: grid;
-    justify-items: center;
-    -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
+    -ms-grid-columns: 45% 45%;
+        grid-template-columns: 45% 45%;
+    color: white;
+    gap: 5%;
+    margin: 2rem auto;
+    margin-left: 1rem;
+    width: 95%;
   }
-  .nav-container .navCities div {
-    margin-top: 20px;
-    width: 90% !important;
+  .nav-container .navCities .city-card {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-right: 22.5%;
+  }
+  .nav-container .navCities .city-card img {
+    width: 20vh;
+  }
+  .nav-container .navCities .city-card div {
+    width: 100%;
+    margin-left: 100%;
+    text-align: center;
   }
   .forcast-con {
     width: 100%;
