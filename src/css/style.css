@@ -7,6 +7,35 @@
           box-sizing: border-box;
 }
 
+.card-con-con {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body {
+  height: 100%;
+}
+
+.bigContainer {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.forehead {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .app-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -15,6 +44,16 @@
   height: 95vh;
   background-color: #f3f3f3;
   border-radius: 25px;
+}
+
+.app-container svg.menu {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  z-index: 101;
+  color: #6bb3dd;
 }
 
 .app-container .nav-container {
@@ -99,7 +138,7 @@
   height: 120px;
   width: 10%;
   border-radius: 15px;
-  background-color: #f0f0f0;
+  background-color: white;
   padding: 0px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -115,7 +154,7 @@
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  border: 2px solid black;
+  border: 2px solid #f7a5b0;
   color: #222222;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
@@ -124,8 +163,6 @@
 }
 
 .slider .daily-slider .mini-card:hover {
-  -webkit-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.445);
-          box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.445);
   bottom: 10px;
 }
 
@@ -212,6 +249,7 @@
 }
 
 .buttonContainer {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -224,29 +262,207 @@
           justify-content: space-between;
 }
 
-.buttonContainer svg {
+.menu {
   color: #6bb3dd;
   font-size: 3rem;
   cursor: pointer;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
   margin: 10px;
 }
 
+@-webkit-keyframes navbarIn {
+  from {
+    -webkit-transform: translateX(-50rem);
+            transform: translateX(-50rem);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes navbarIn {
+  from {
+    -webkit-transform: translateX(-50rem);
+            transform: translateX(-50rem);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes navbarOut {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  to {
+    -webkit-transform: translateX(-50rem);
+            transform: translateX(-50rem);
+  }
+}
+
+@keyframes navbarOut {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  to {
+    -webkit-transform: translateX(-50rem);
+            transform: translateX(-50rem);
+  }
+}
+
 @media only screen and (max-width: 900px) {
+  .bigContainer {
+    background-color: #f3f3f3 !important;
+    height: auto;
+  }
   .weather-forcast {
     display: none;
   }
+  .forehead {
+    display: none !important;
+  }
+  svg.menu {
+    position: fixed !important;
+    top: 0;
+  }
   .nav-container {
-    width: 100vw !important;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+    -webkit-animation-duration: 0.5s;
+            animation-duration: 0.5s;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0 !important;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+  }
+  .nav-container nav {
+    padding: 0px;
+  }
+  .nav-container .card-con {
     display: none;
+  }
+  .nav-container .navCities {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 45% 45%;
+        grid-template-columns: 45% 45%;
+    color: white;
+    gap: 5%;
+    margin: 2rem auto;
+    margin-left: 1rem;
+    width: 95%;
+  }
+  .nav-container .navCities .city-card {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-right: 22.5%;
+  }
+  .nav-container .navCities .city-card img {
+    width: 20vh;
+  }
+  .nav-container .navCities .city-card div {
+    width: 100%;
+    margin-left: 100%;
+    text-align: center;
+  }
+  .forcast-con {
+    width: 100%;
+    min-height: auto;
   }
   .daily-card-con {
     width: 95vw;
   }
+  #dailyCard {
+    margin-top: 14vh;
+    margin-bottom: 2rem;
+  }
   .details {
     width: 93vw;
   }
+  .buttonContainer {
+    bottom: 39.5rem;
+  }
+  .hourlySlider .daily-slider {
+    margin-top: 1rem;
+  }
   .slider {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
     width: 95vw;
+    height: auto;
+    margin-bottom: 5vh;
+  }
+  .slider .daily-slider {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .slider .daily-slider .mini-card {
+    width: 90vw !important;
+    margin: auto;
+    height: 5rem;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  .slider .daily-slider .mini-card div img {
+    position: relative !important;
+  }
+  .slider .daily-slider .mini-card .text-container {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  .slider .daily-slider .mini-card .chart-con {
+    height: auto;
+  }
+  .icon {
+    display: none;
+  }
+  .card-con-con {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .app-container {
+    height: 84%;
   }
 }
 
@@ -254,5 +470,25 @@
   .daily-card-con {
     display: none;
   }
+}
+
+.example-enter {
+  opacity: 0;
+}
+
+.example-enter-active {
+  opacity: 1;
+  -webkit-transition: opacity 500ms ease-in;
+  transition: opacity 500ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave-active {
+  opacity: 0;
+  -webkit-transition: opacity 300ms ease-in;
+  transition: opacity 300ms ease-in;
 }
 /*# sourceMappingURL=style.css.map */

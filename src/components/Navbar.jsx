@@ -8,14 +8,15 @@ import { Ri24HoursLine } from "react-icons/ri";
 import { BiCalendarWeek } from "react-icons/bi";
 import { FiSettings } from "react-icons/fi";
 import Logo from "../assests/weather-logo.png";
+import Cards from './Cards'
 
-const Navbar = ({ setActive, temp, cityDaily }) => {
+const Navbar = ({ setActive, temp, cityDaily, activeNav, activeF, data, showNav, toggleNav, animation }) => {
   return (
-    <div className="nav-container" style={{ margin: "0" }}>
+    <div className="nav-container" id="navbar-con" style={{ margin: "0", animationName: (animation === 'out') ? 'navbarOut' : 'navbarIn'}}>
       <Header logo={Logo} />
 
       <Nav
-        className="d-flex flex-column justify-content-between"
+        className="d-flex-lg flex-column justify-content-between align-items-center align-items-lg-start"
         style={{ paddingLeft: "25px", height: "30%" }}
       >
         <NavLinks
@@ -26,7 +27,10 @@ const Navbar = ({ setActive, temp, cityDaily }) => {
               style={{ paddingRight: "10px", height: "33px", width: "33px" }}
             />
           }
-          onclick={() => setActive("today")}
+          onclick={() => {
+            setActive("today")
+            if(!showNav) toggleNav()
+          }}
         ></NavLinks>
 
         <NavLinks
@@ -37,7 +41,10 @@ const Navbar = ({ setActive, temp, cityDaily }) => {
               style={{ paddingRight: "10px", height: "33px", width: "33px" }}
             />
           }
-          onclick={() => setActive("hourly")}
+          onclick={() => {
+            setActive("hourly")
+            if(!showNav) toggleNav()
+          }}
         />
         <NavLinks
           name="Daily"
@@ -47,7 +54,10 @@ const Navbar = ({ setActive, temp, cityDaily }) => {
               style={{ paddingRight: "10px", height: "33px", width: "33px" }}
             />
           }
-          onclick={() => setActive("daily")}
+          onclick={() => {
+            setActive("daily")
+            if(!showNav) toggleNav()
+          }}
         />
         <NavLinks
           name="Settings"
@@ -57,10 +67,22 @@ const Navbar = ({ setActive, temp, cityDaily }) => {
               style={{ paddingRight: "10px", height: "33px", width: "33px" }}
             />
           }
-          onclick={() => setActive("settings")}
+          onclick={() => {
+            setActive("settings")
+            if(!showNav) toggleNav()
+          }}
         />
       </Nav>
-      <DailyCard cityDaily={cityDaily} temp={temp} />
+      {showNav && 
+        <DailyCard cityDaily={cityDaily} temp={temp} />
+      }
+
+      {!showNav && 
+        <div className = "navCities">
+          <Cards activeF={activeF} data={data}/>
+        </div>
+      }
+      
     </div>
   );
 };

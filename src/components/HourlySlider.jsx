@@ -1,11 +1,10 @@
 import React from 'react'
 import MiniCard from './MiniCard'
-import Sun from '../assests/sunny.png'
-import { useState } from 'react'
 import {ImArrowRight2, ImArrowLeft2} from 'react-icons/im'
+import Detail from '../components/Detail'
 
 
-const HourlySlider = ({ arr, city, active, miniData, currSlide, setCurrSlide }) => {
+const HourlySlider = ({ arr, city, active, miniData, currSlide, setCurrSlide, chartToggle, chart }) => {
 
 
   const slides = [arr.slice(0, 6), arr.slice(6, 12), arr.slice(12, 18), arr.slice(18, 24), arr.slice(24, 30), arr.slice(30, 36), arr.slice(36, 42), arr.slice(42)]
@@ -19,7 +18,7 @@ const HourlySlider = ({ arr, city, active, miniData, currSlide, setCurrSlide }) 
   }
 
     return(
-    <div className="slider">
+    <div className="slider hourlySlider">
       <h3
         style={{
           paddingBottom: "20px",
@@ -30,6 +29,7 @@ const HourlySlider = ({ arr, city, active, miniData, currSlide, setCurrSlide }) 
       >  
       {city}
       </h3>
+      <Detail activePage = {active} chartToggle = {chartToggle} chart = {chart} />
       <div className="daily-slider">
           {slides[currSlide].map( (card, i) => {
             return <MiniCard pic={`http://openweathermap.org/img/wn/${card.weather[0].icon}@2x.png`}  temp = {card.temp} arr = {arr} miniData = {miniData} page = {active} text={`${(currSlide) * 6 + i + 1}:00`} key = {`c${i}]`}/>

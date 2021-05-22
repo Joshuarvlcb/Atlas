@@ -6,12 +6,41 @@
   box-sizing: border-box;
 }
 
+.card-con-con{
+  align-items: center;
+}
+
+body{
+  height: 100%;
+}
+
+.bigContainer{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.forehead{
+  display: flex;
+}
+
 .app-container {
   display: flex;
   width: 95vw;
   height: 95vh;
   background-color: rgb(243, 243, 243);
   border-radius: 25px;
+
+  svg.menu{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    z-index: 101;
+    color: rgb(107, 179, 221);
+  }
 
   .nav-container {
     height: 100%;
@@ -78,21 +107,21 @@
       height: 120px;
       width: 10%;
       border-radius: 15px;
-      background-color: rgb(240, 240, 240);
+      background-color: rgb(255, 255, 255);
       padding: 0px;
       display: flex;
       flex-direction: column;
       font-weight: bold;
       align-items: center;
       justify-content: flex-start;
-      border: 2px solid rgb(0, 0, 0);
+      border: 2px solid rgb(247, 165, 176);
       color: rgb(34, 34, 34);
       transition: all 0.5s ease;
       position: relative;
       bottom: 0;
 
       &:hover{
-        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.445);
+        // box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.445);
         bottom: 10px;
       }
     }
@@ -157,35 +186,179 @@
 
 //hourly slider
 .buttonContainer{
+  position: relative;
+  // bottom: 5.5rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+ 
+}
+.menu{
+  color: rgb(107, 179, 221);
+  font-size: 3rem;
+  cursor: pointer;
+  transition: all .3s ease;
+  margin: 10px;
+}
 
-  svg{
-    color: rgb(107, 179, 221);
-    font-size: 3rem;
-    cursor: pointer;
-    margin: 10px;
+@keyframes navbarIn {
+  from {
+    transform: translateX(-50rem)
+  }
+  to {
+    transform: translateX(0)
+  }
+}
+
+@keyframes navbarOut {
+  from {
+    transform: translateX(0)
+  }
+  to {
+    transform: translateX(-50rem)
   }
 }
 
 @media only screen and (max-width: 900px){
+  .bigContainer{
+    background-color: #f3f3f3!important;
+    height: auto;
+  }
   .weather-forcast{
     display: none;
   }
-  .nav-container{
-    width: 100vw!important;
-    display: none;
+  .forehead{
+    display: none!important;
   }
+
+  svg.menu{
+    position: fixed!important;
+    top: 0;
+  }
+
+  .nav-container{
+    animation-fill-mode: forwards;
+    animation-duration: 0.5s;
+    width: 100%!important;
+    height: 100%!important;
+    border-radius: 0!important;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+
+    nav{
+      padding: 0px;
+
+    }
+    .card-con{
+      display: none;
+    }
+   
+    .navCities{
+      display: grid;
+      grid-template-columns: 45% 45%;
+      color: white;
+      gap: 5%;
+      margin: 2rem auto;
+      margin-left: 1rem;
+      width: 95%;
+      // justify-items: center;
+      
+      .city-card{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-right: 22.5%;
+        img{
+          width: 20vh
+        }
+        div{
+          width: 100%;
+          margin-left: 100%;
+          text-align: center;
+        }
+      }
+    }
+
+  }
+
+.forcast-con{
+  width: 100%;
+  min-height: auto;
+}
   .daily-card-con{
     width: 95vw;
+  }
+  #dailyCard{
+    margin-top: 14vh;
+    margin-bottom: 2rem;
   }
   .details{
     width: 93vw;
   }
 
+  .buttonContainer{
+    bottom: 39.5rem;
+  }
+  .hourlySlider{
+    .daily-slider{
+      margin-top: 1rem;
+    }
+  }
   .slider{
+    justify-content: flex-end;
     width: 95vw;
+    height: auto;
+    margin-bottom: 5vh;
+    
+    .daily-slider{
+
+      flex-direction: column;
+      
+      .mini-card{
+        width: 90vw!important;
+        margin: auto;
+        height: 5rem;
+        flex-direction: row!important;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom:1rem;
+        position: relative;
+        div img{
+          position: relative!important;
+        }
+
+        .text-container{ 
+          width: 100%;
+          display: flex;
+          flex-direction: row!important;
+          justify-content: space-evenly;  
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        .chart-con{
+          height: auto;
+        }
+      }
+    }
+  }
+
+  
+
+  .icon{
+    display: none;
+  }
+  
+
+  .card-con-con{
+    align-items: flex-start;
+  }
+
+  .app-container{
+    height: 84%;
   }
 }
 @media only screen and (min-width: 900px){
@@ -193,3 +366,18 @@
     display: none;
   }
 }
+.example-enter {
+  opacity: 0;
+}
+.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+.example-leave {
+  opacity: 1;
+}
+.example-leave-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}
+

@@ -1,49 +1,86 @@
-import React from 'react'
-import { Line } from 'react-chartjs-2';
+import React from "react";
+import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2"
+import Detail from "./Detail";
+
+const Chart = ({activePage, chartToggle,chart, newData, weather}) => {
 
 
-const Chart = () => {
+  const labels = {
+    today: ['Morning', 'Noon', 'Evening', 'Night'],
+    daily: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    hourly: ['6:00', '12:00', '18:00', '24:00', '36:00', '42:00', '48:00']
+  }
+
+  const weatherData = {
+    today: [newData['hourly'][4]['temp'], newData['hourly'][11]['temp'], newData['hourly'][16]['temp'], newData['hourly'][23]['temp']],
+    hourly: [newData['hourly'][5]['temp'], newData['hourly'][11]['temp'], newData['hourly'][17]['temp'], newData['hourly'][23]['temp'], newData['hourly'][29]['temp'], newData['hourly'][35]['temp'], newData['hourly'][41]['temp'], newData['hourly'][47]['temp']],
+    daily: [newData['daily'][0]['temp']['day'], newData['daily'][1]['temp']['day'], newData['daily'][2]['temp']['day'], newData['daily'][3]['temp']['day'], newData['daily'][4]['temp']['day'], newData['daily'][5]['temp']['day'], newData['daily'][6]['temp']['day']]
+  }
+
+  
+
+  const data = {
+    labels: labels[activePage],
+    datasets: [
+      {
+        label: 'Temperature',
+        data: weatherData[activePage],
+        fill: false,
+        backgroundColor: "rgb(255, 99, 132)",
+        borderColor: "rgb(255, 99, 132)",
+      },
+    ],
+  }
+
+  const options = {
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true,
+          },
+        },
+      ],
+      // xAxes: [
+      //   {
+      //     ticks: {
+      //       beginAtZero: true,
+      //     }
+      //   }
+      // ]
+    },
+  };
 
 
   return (
-      <>
-    <div className = 'chart-con d-flex align-items-center flex-column' style = {{height:'50%'}}>
-  <h3
-                style={{
-                  paddingBottom: "20px",
-                  paddingLeft: "20px",
-                }}
-              >Chart</h3>
-
-<Line style = {{padding:'0 25px'}}
-height = '70%'
-      data={{
-        labels: ['1', '2', '3', '4', '5', '6'],
-        dataSets:[
-          {
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            fill: false,
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgba(255, 99, 132, 0.2)',
-          },
-        ],
-      }}
-      options = {{
-        scales: {
-          yAxes: [
-            {
-              ticks: {
-                beginAtZero: true,
-              },
-            },
-          ],
-        },
-      }}
-    />
-
-    </div>
-    
+    <>
+      <div
+        className="chart-con d-flex justify-content-center align-items-center flex-column"
+        style = {{ height: (window.innerWidth <= 900) ? 'auto' :'50%' } }
+      >
+        <div
+          className=" d-flex justify-content-between align-items-center"
+          style={{ width: "100%" 
+        }}
+        >
+          <h3
+            style={{
+              paddingLeft: "20px",
+            }}
+          >
+            Chart
+          </h3>
+ 
+          <Detail activePage = {activePage} chartToggle = {chartToggle} chart={chart}/>
+        </div>
+        <Line
+        height = {(window.innerWidth <= 900) ? '100%' :'70%'}
+          style={{ padding: "0 20px" }}
+          data= {data}
+          options={options}
+        />
+      </div>
     </>
   );
 };

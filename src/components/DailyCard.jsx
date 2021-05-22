@@ -1,7 +1,6 @@
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Sun from "../assests/sunny.png";
 import ProgressBar from "react-bootstrap/ProgressBar";
 const DailyCard = ({ temp, cityDaily }) => {
   return (
@@ -9,7 +8,7 @@ const DailyCard = ({ temp, cityDaily }) => {
       style = {{ height: '55%'}}
     >
       <Container
-        className="d-flex justify-content-center align-items-center"
+        className="d-flex justify-content-center card-con-con"
         style={{ height: "100%" }}
       >
         <div as="div" className="card-con">
