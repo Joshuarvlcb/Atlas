@@ -19,11 +19,11 @@ import axios from 'axios'
 function App() {
 
   //api key: 004d873acf1ccd606483135a214f13d1
-  //central campus: 33.53596730937949, -112.2928500313519
+  //33.468880958416364, -112.0893868131333
 
   const [newData, setNewData] = useState(weather)
-  const [lat, setLat] = useState(33.53596730937949)
-  const [lon, setLon] = useState(-112.2928500313519)
+  const [lat, setLat] = useState(33.468880958416364)
+  const [lon, setLon] = useState(-112.0893868131333)
 
   useEffect( () => {
     axios(`http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=004d873acf1ccd606483135a214f13d1`)
