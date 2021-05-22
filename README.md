@@ -56,7 +56,7 @@ To open the website:
 
     5/21/2021
     Joshua: 
-    Kevin: Redid the cities in the mobile navbar to make it look better
+    Kevin: Redid the cities in the mobile navbar to make it look better. Also fixed the arrows in hourly slider.
 
 
 
