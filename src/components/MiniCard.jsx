@@ -1,4 +1,4 @@
-const MiniCard = ({ pic, page, temp, text, miniData, arr, daily }) => {
+const MiniCard = ({ pic, page, temp, text, miniData, arr, daily, day }) => {
   return (
     <>
       <div
@@ -36,6 +36,7 @@ const MiniCard = ({ pic, page, temp, text, miniData, arr, daily }) => {
           className="d-flex flex-column align-items-center text-container"
           style={{ position: "absolute", top: "50%" }}
         >
+          {day !== undefined && <div className="day">{day}</div>}
           <div className="date">{text}</div>
           <div className="deg">{temp.toFixed(1)}°</div>
         </div>

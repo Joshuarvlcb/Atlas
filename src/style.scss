@@ -100,6 +100,7 @@ body{
   justify-content: center;
   
   .daily-slider {
+    z-index: 3;
     display: flex;
     justify-content: space-evenly;
 
@@ -188,10 +189,17 @@ body{
 .buttonContainer{
   position: relative;
   // bottom: 5.5rem;
+  z-index: 5;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
- 
+
+  svg{
+    height: 2rem;
+    width: 2rem;
+    z-index: 5;
+    cursor: pointer;
+  }
 }
 .menu{
   color: rgb(107, 179, 221);
@@ -217,6 +225,11 @@ body{
   to {
     transform: translateX(-50rem)
   }
+}
+
+
+.hourlySlider .daily-slider .mini-card{
+  height: 145px;
 }
 
 @media only screen and (max-width: 900px){
@@ -254,7 +267,7 @@ body{
     .card-con{
       display: none;
     }
-   
+    
     .navCities{
       display: grid;
       grid-template-columns: 45% 45%;
@@ -302,8 +315,18 @@ body{
     bottom: 39.5rem;
   }
   .hourlySlider{
+    .details{
+      bottom: 3.2rem;
+      position: relative;
+    }
+
     .daily-slider{
       margin-top: 1rem;
+
+      .mini-card .text-container{
+        justify-content:flex-end!important;
+        gap: 2rem!important;
+      }
     }
   }
   .slider{
@@ -313,6 +336,7 @@ body{
     margin-bottom: 5vh;
     
     .daily-slider{
+      z-index: 3;
 
       flex-direction: column;
       

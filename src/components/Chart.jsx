@@ -9,7 +9,7 @@ const Chart = ({activePage, chartToggle,chart, newData, weather}) => {
   const labels = {
     today: ['Morning', 'Noon', 'Evening', 'Night'],
     daily: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-    hourly: ['6:00', '12:00', '18:00', '24:00', '36:00', '42:00', '48:00']
+    hourly: ['Monday 12:00AM', 'Monday 6:00AM', 'Monday 12:00PM', 'Monday 6:00PM', 'Tuesday 12:00AM', 'Tuesday 6:00AM', 'Tuesday 12:00PM', 'Tuesday 6:00PM']
   }
 
   const weatherData = {

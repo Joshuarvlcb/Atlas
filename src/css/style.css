@@ -126,6 +126,7 @@ body {
 }
 
 .slider .daily-slider {
+  z-index: 3;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -250,6 +251,7 @@ body {
 
 .buttonContainer {
   position: relative;
+  z-index: 5;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -260,6 +262,13 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.buttonContainer svg {
+  height: 2rem;
+  width: 2rem;
+  z-index: 5;
+  cursor: pointer;
 }
 
 .menu {
@@ -313,6 +322,10 @@ body {
     -webkit-transform: translateX(-50rem);
             transform: translateX(-50rem);
   }
+}
+
+.hourlySlider .daily-slider .mini-card {
+  height: 145px;
 }
 
 @media only screen and (max-width: 900px) {
@@ -396,8 +409,18 @@ body {
   .buttonContainer {
     bottom: 39.5rem;
   }
+  .hourlySlider .details {
+    bottom: 3.2rem;
+    position: relative;
+  }
   .hourlySlider .daily-slider {
     margin-top: 1rem;
+  }
+  .hourlySlider .daily-slider .mini-card .text-container {
+    -webkit-box-pack: end !important;
+        -ms-flex-pack: end !important;
+            justify-content: flex-end !important;
+    gap: 2rem !important;
   }
   .slider {
     -webkit-box-pack: end;
@@ -408,6 +431,7 @@ body {
     margin-bottom: 5vh;
   }
   .slider .daily-slider {
+    z-index: 3;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
